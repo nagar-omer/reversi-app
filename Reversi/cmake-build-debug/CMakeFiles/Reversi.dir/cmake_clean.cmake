@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Reversi.dir/tests/gtest_main.cpp.o"
   "CMakeFiles/Reversi.dir/tests/test_Board.cpp.o"
   "CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o"
+  "CMakeFiles/Reversi.dir/tests/test_Player.cpp.o"
   "Reversi.pdb"
   "Reversi"
 )

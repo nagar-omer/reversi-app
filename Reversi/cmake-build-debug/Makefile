@@ -437,6 +437,33 @@ tests/test_Board.cpp.s:
 	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/tests/test_Board.cpp.s
 .PHONY : tests/test_Board.cpp.s
 
+tests/test_Player.o: tests/test_Player.cpp.o
+
+.PHONY : tests/test_Player.o
+
+# target to build an object file
+tests/test_Player.cpp.o:
+	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/tests/test_Player.cpp.o
+.PHONY : tests/test_Player.cpp.o
+
+tests/test_Player.i: tests/test_Player.cpp.i
+
+.PHONY : tests/test_Player.i
+
+# target to preprocess a source file
+tests/test_Player.cpp.i:
+	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/tests/test_Player.cpp.i
+.PHONY : tests/test_Player.cpp.i
+
+tests/test_Player.s: tests/test_Player.cpp.s
+
+.PHONY : tests/test_Player.s
+
+# target to generate assembly for a file
+tests/test_Player.cpp.s:
+	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/tests/test_Player.cpp.s
+.PHONY : tests/test_Player.cpp.s
+
 tests/test_ReversiPlayer.o: tests/test_ReversiPlayer.cpp.o
 
 .PHONY : tests/test_ReversiPlayer.o
@@ -505,6 +532,9 @@ help:
 	@echo "... tests/test_Board.o"
 	@echo "... tests/test_Board.i"
 	@echo "... tests/test_Board.s"
+	@echo "... tests/test_Player.o"
+	@echo "... tests/test_Player.i"
+	@echo "... tests/test_Player.s"
 	@echo "... tests/test_ReversiPlayer.o"
 	@echo "... tests/test_ReversiPlayer.i"
 	@echo "... tests/test_ReversiPlayer.s"
