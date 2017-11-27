@@ -110,6 +110,35 @@ CMakeFiles/Reversi.dir/tests/test_Player.cpp.o: ../lib/googletest-master/googlet
 CMakeFiles/Reversi.dir/tests/test_Player.cpp.o: ../include/Player.h
 CMakeFiles/Reversi.dir/tests/test_Player.cpp.o: ../tests/test_Player.cpp
 
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest-death-test.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest-message.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest-param-test.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest-printers.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest-test-part.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest-typed-test.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest_pred_impl.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest_prod.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/custom/gtest-port.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/custom/gtest-printers.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-death-test-internal.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-filepath.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-internal.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-linked_ptr.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-param-util-generated.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-param-util.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-port-arch.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-port.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-string.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-tuple.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../include/Board.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../include/Game.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../include/Player.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../include/Reversi.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../include/ReversiPlayer.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../tests/test_Reversi.cpp
+
 CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest-death-test.h
 CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest-message.h
 CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest-param-test.h

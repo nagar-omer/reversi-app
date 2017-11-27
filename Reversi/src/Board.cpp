@@ -26,8 +26,8 @@ Board::Board(int row, int col) {
         this->col = col;
     }
     else{
-        this->row = 8;
-        this->col = 8;
+        this->row = row = 8;
+        this->col = col = 8;
     }
 
     //initiate ERROR cell to return when needed

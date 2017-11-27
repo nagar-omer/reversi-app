@@ -169,11 +169,13 @@ class Board {
 public:
     static const bool BLACK = true;
     static const bool WHITE = false;
+    // funcs for testing - other then that they are not needed
     int getRows() { return  row;};
     int getCols() { return  col;};
     // the numbers are shown 1..n hence the -1
     bool getColor(int i, int j) { return getCell(i - 1, j - 1).getColor(); };
     bool isColred(int i, int j) { return getCell(i - 1, j - 1).isColored(); };
+    // end of funcs for testing
 
     /*************************************************************************
      * Function name: Board Constructor                                      *

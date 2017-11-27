@@ -28,6 +28,12 @@ class Reversi: public Game {
     bool play(ReversiPlayer player);
 
 public:
+    // funcs for testing
+    Board &getBoard() { return board; };
+    ReversiPlayer &getPlayer1() { return player1; };
+    ReversiPlayer &getPlayer2() { return player2; };
+    // end of funcs for testing
+
     /*****************************************************************************
      * Function name: default constructor - initiate players and board           *
      ****************************************************************************/
