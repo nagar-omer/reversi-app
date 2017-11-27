@@ -347,10 +347,18 @@ cstdlib
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/gtest_main.cpp
 gtest/gtest.h
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/gtest/gtest.h
+../include/Board.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Board.h
 
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/test_Board.cpp
 gtest/gtest.h
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/gtest/gtest.h
 ../include/Board.h
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Board.h
+
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/test_ReversiPlayer.cpp
+gtest/gtest.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/gtest/gtest.h
+../include/ReversiPlayer.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/ReversiPlayer.h
 

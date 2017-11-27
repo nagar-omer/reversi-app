@@ -437,6 +437,33 @@ tests/test_Board.cpp.s:
 	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/tests/test_Board.cpp.s
 .PHONY : tests/test_Board.cpp.s
 
+tests/test_ReversiPlayer.o: tests/test_ReversiPlayer.cpp.o
+
+.PHONY : tests/test_ReversiPlayer.o
+
+# target to build an object file
+tests/test_ReversiPlayer.cpp.o:
+	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o
+.PHONY : tests/test_ReversiPlayer.cpp.o
+
+tests/test_ReversiPlayer.i: tests/test_ReversiPlayer.cpp.i
+
+.PHONY : tests/test_ReversiPlayer.i
+
+# target to preprocess a source file
+tests/test_ReversiPlayer.cpp.i:
+	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.i
+.PHONY : tests/test_ReversiPlayer.cpp.i
+
+tests/test_ReversiPlayer.s: tests/test_ReversiPlayer.cpp.s
+
+.PHONY : tests/test_ReversiPlayer.s
+
+# target to generate assembly for a file
+tests/test_ReversiPlayer.cpp.s:
+	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.s
+.PHONY : tests/test_ReversiPlayer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -478,6 +505,9 @@ help:
 	@echo "... tests/test_Board.o"
 	@echo "... tests/test_Board.i"
 	@echo "... tests/test_Board.s"
+	@echo "... tests/test_ReversiPlayer.o"
+	@echo "... tests/test_ReversiPlayer.i"
+	@echo "... tests/test_ReversiPlayer.s"
 .PHONY : help
 
 

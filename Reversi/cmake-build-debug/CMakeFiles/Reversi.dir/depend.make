@@ -57,6 +57,7 @@ CMakeFiles/Reversi.dir/tests/gtest_main.cpp.o: ../lib/googletest-master/googlete
 CMakeFiles/Reversi.dir/tests/gtest_main.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-string.h
 CMakeFiles/Reversi.dir/tests/gtest_main.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-tuple.h
 CMakeFiles/Reversi.dir/tests/gtest_main.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
+CMakeFiles/Reversi.dir/tests/gtest_main.cpp.o: ../include/Board.h
 CMakeFiles/Reversi.dir/tests/gtest_main.cpp.o: ../tests/gtest_main.cpp
 
 CMakeFiles/Reversi.dir/tests/test_Board.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest-death-test.h
@@ -83,4 +84,31 @@ CMakeFiles/Reversi.dir/tests/test_Board.cpp.o: ../lib/googletest-master/googlete
 CMakeFiles/Reversi.dir/tests/test_Board.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
 CMakeFiles/Reversi.dir/tests/test_Board.cpp.o: ../include/Board.h
 CMakeFiles/Reversi.dir/tests/test_Board.cpp.o: ../tests/test_Board.cpp
+
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest-death-test.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest-message.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest-param-test.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest-printers.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest-test-part.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest-typed-test.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest_pred_impl.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/gtest_prod.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/custom/gtest-port.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/custom/gtest-printers.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-death-test-internal.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-filepath.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-internal.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-linked_ptr.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-param-util-generated.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-param-util.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-port-arch.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-port.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-string.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-tuple.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../include/Board.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../include/Player.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../include/ReversiPlayer.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../tests/test_ReversiPlayer.cpp
 

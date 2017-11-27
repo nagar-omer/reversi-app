@@ -121,8 +121,8 @@ void ReversiPlayer::computerMove(int result[2], Board &board) {
     // return best option
     result[0] = (*bestMove)->getX();
     result[1] = (*bestMove)->getY();
-    ////
-    cout << "----------------" << endl << opponentScoreForBestMove << endl << "--------------------" << endl;
+    //// optional print to show opponents score after the move
+    //// cout << "----------------" << endl << opponentScoreForBestMove << endl << "--------------------" << endl;
     ////
     cout << "computer move: " << "(" <<result[0] << "," << result[1] << ")" << endl << endl;
 
