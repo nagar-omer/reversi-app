@@ -278,7 +278,7 @@ cxxabi.h
 acxx_demangle.h
 -
 
-/home/oved/CLionProjects/Reversi/include/Board.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Board.h
 sstream
 -
 iostream
@@ -286,15 +286,15 @@ iostream
 vector
 -
 
-/home/oved/CLionProjects/Reversi/include/Game.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Game.h
 
-/home/oved/CLionProjects/Reversi/include/PlayGround.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/PlayGround.h
 Player.h
-/home/oved/CLionProjects/Reversi/include/Player.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Player.h
 Reversi.h
-/home/oved/CLionProjects/Reversi/include/Reversi.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Reversi.h
 
-/home/oved/CLionProjects/Reversi/include/Player.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Player.h
 iostream
 -
 string
@@ -302,55 +302,55 @@ string
 sstream
 -
 
-/home/oved/CLionProjects/Reversi/include/Reversi.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Reversi.h
 Game.h
-/home/oved/CLionProjects/Reversi/include/Game.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Game.h
 ReversiPlayer.h
-/home/oved/CLionProjects/Reversi/include/ReversiPlayer.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/ReversiPlayer.h
 Board.h
-/home/oved/CLionProjects/Reversi/include/Board.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Board.h
 
-/home/oved/CLionProjects/Reversi/include/ReversiPlayer.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/ReversiPlayer.h
 Player.h
-/home/oved/CLionProjects/Reversi/include/Player.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Player.h
 Board.h
-/home/oved/CLionProjects/Reversi/include/Board.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Board.h
 vector
 -
 
-/home/oved/CLionProjects/Reversi/src/Board.cpp
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/src/Board.cpp
 ../include/Board.h
-/home/oved/CLionProjects/Reversi/include/Board.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Board.h
 
-/home/oved/CLionProjects/Reversi/src/PlayGround.cpp
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/src/PlayGround.cpp
 ../include/PlayGround.h
-/home/oved/CLionProjects/Reversi/include/PlayGround.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/PlayGround.h
 
-/home/oved/CLionProjects/Reversi/src/Player.cpp
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/src/Player.cpp
 ../include/Player.h
-/home/oved/CLionProjects/Reversi/include/Player.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Player.h
 
-/home/oved/CLionProjects/Reversi/src/Reversi.cpp
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/src/Reversi.cpp
 ../include/Reversi.h
-/home/oved/CLionProjects/Reversi/include/Reversi.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Reversi.h
 
-/home/oved/CLionProjects/Reversi/src/ReversiPlayer.cpp
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/src/ReversiPlayer.cpp
 cstdlib
 -
 ../include/ReversiPlayer.h
-/home/oved/CLionProjects/Reversi/include/ReversiPlayer.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/ReversiPlayer.h
 
-/home/oved/CLionProjects/Reversi/src/main.cpp
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/src/main.cpp
 ../include/PlayGround.h
-/home/oved/CLionProjects/Reversi/include/PlayGround.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/PlayGround.h
 
-/home/oved/CLionProjects/Reversi/tests/gtest_main.cpp
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/gtest_main.cpp
 gtest/gtest.h
-/home/oved/CLionProjects/Reversi/tests/gtest/gtest.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/gtest/gtest.h
 
-/home/oved/CLionProjects/Reversi/tests/test_Board.cpp
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/test_Board.cpp
 gtest/gtest.h
-/home/oved/CLionProjects/Reversi/tests/gtest/gtest.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/gtest/gtest.h
 ../include/Board.h
-/home/oved/CLionProjects/Reversi/include/Board.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Board.h
 

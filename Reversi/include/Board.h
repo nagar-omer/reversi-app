@@ -171,6 +171,9 @@ public:
     static const bool WHITE = false;
     int getRows() { return  row;};
     int getCols() { return  col;};
+    // the numbers are shown 1..n hence the -1
+    bool getColor(int i, int j) { return getCell(i - 1, j - 1).getColor(); };
+    bool isColred(int i, int j) { return getCell(i - 1, j - 1).isColored(); };
 
     /*************************************************************************
      * Function name: Board Constructor                                      *

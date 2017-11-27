@@ -1,4 +1,4 @@
-# Install script for directory: /home/oved/CLionProjects/Reversi/lib/googletest-master
+# Install script for directory: /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/lib/googletest-master
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/oved/CLionProjects/Reversi/cmake-build-debug/lib/googletest-master/googlemock/cmake_install.cmake")
+  include("/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/cmake-build-debug/lib/googletest-master/googlemock/cmake_install.cmake")
 
 endif()
 
