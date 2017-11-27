@@ -43,7 +43,7 @@ void ReversiPlayer::userMove(int result[2], Board &board) {
         istringstream in(input);
         in >> result[0] >> result[1];
         // verify that move is legal
-        for(vector<ReversiPlayer::Point *>::iterator it = optionsVec->begin(); it != optionsVec->end(); ++it)
+        for(vector<ReversiPlayer::Point *>::const_iterator it = optionsVec->begin(); it != optionsVec->end(); ++it)
             if ((*it)->getX() == result[0] && (*it)->getY() == result[1]) {
                 legal = true;
                 break;
@@ -60,11 +60,10 @@ void ReversiPlayer::userMove(int result[2], Board &board) {
  * Output: true if according to format i,j false otherwise                   *
  ****************************************************************************/
 bool ReversiPlayer::checkMoveInput(const string &input) const{
-    int len = input.size();
+    unsigned long int len = input.size();
     // minimum len for row,col
     if(len < 3)
         return false;
-    bool valid = true;
     // check that first char in a number
     if (input[0] > '9' || input[0] < '0')
         return false;
@@ -87,7 +86,7 @@ bool ReversiPlayer::checkMoveInput(const string &input) const{
     if(input[i] > '9' || input[i] < '0')
         return false;
     // skip all numbers
-    while (i < len && input[i] <= '9' && input[i] >= '0')
+    while(i < len && input[i] <= '9' && input[i] >= '0')
         i++;
     if(i >= len || isspace(input[i]))
         return true;
@@ -113,7 +112,7 @@ void ReversiPlayer::computerMove(int result[2], Board &board) {
     int opponentScoreForBestMove = board.OpponentScoreForMove((*bestMove)->getX(),(*bestMove)->getY(),color);
 
     for(vector<ReversiPlayer::Point *>::const_iterator it = vecOptions->begin(); it != vecOptions->end(); ++it) {
-        int temp = board.OpponentScoreForMove((*it)->getX()-1,(*it)->getY()-1,color);
+        int temp = board.OpponentScoreForMove((*it)->getX(),(*it)->getY(),color);
         if(temp < opponentScoreForBestMove){
             bestMove = it;
             opponentScoreForBestMove = temp;

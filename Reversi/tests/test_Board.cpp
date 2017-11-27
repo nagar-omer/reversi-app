@@ -1,3 +1,4 @@
+
 #include "gtest/gtest.h"
 #include "../include/Board.h"
 
@@ -188,9 +189,109 @@ TEST(Board_play, illegal_moves){
     EXPECT_EQ(board.isColred(8, 7), false);
     EXPECT_EQ(board.isColred(8, 8), false);
 
+}
 
+
+TEST(Board_funcs, check_score){
+
+    Board board = Board();
+    EXPECT_EQ(board.score(true), 2);
+    EXPECT_EQ(board.score(false), 2);
+
+    board.playColor(3, 4, true);
+    EXPECT_EQ(board.score(true), 4);
+    EXPECT_EQ(board.score(false), 1);
+
+    board.playColor(3, 3, false);
+    EXPECT_EQ(board.score(true), 3);
+    EXPECT_EQ(board.score(false), 3);
+
+    board.playColor(6, 5, true);
+    EXPECT_EQ(board.score(true), 5);
+    EXPECT_EQ(board.score(false), 2);
+
+    board.playColor(3, 5, false);
+    EXPECT_EQ(board.score(true), 4);
+    EXPECT_EQ(board.score(false), 4);
+
+    board.playColor(2, 3, true);
+    EXPECT_EQ(board.score(true), 6);
+    EXPECT_EQ(board.score(false), 3);
+
+    board.playColor(2, 4, false);
+    EXPECT_EQ(board.score(true), 5);
+    EXPECT_EQ(board.score(false), 5);
+
+    board.playColor(4, 3, true);
+    EXPECT_EQ(board.score(true), 8);
+    EXPECT_EQ(board.score(false), 3);
+}
+
+TEST(Board_funcs, posiible_moves){
+
+    Board board = Board();
+    EXPECT_EQ(board.possibleMoves(true), "(3,4),(4,3),(5,6),(6,5)");
+    EXPECT_EQ(board.possibleMoves(false), "(3,5),(4,6),(5,3),(6,4)");
+
+    board.playColor(3, 4, true);
+    EXPECT_EQ(board.possibleMoves(true), "(5,6),(6,5),(6,6)");
+    EXPECT_EQ(board.possibleMoves(false), "(3,3),(3,5),(5,3)");
+
+    board.playColor(3, 3, false);
+    EXPECT_EQ(board.possibleMoves(true), "(3,2),(4,3),(5,6),(6,5)");
+    EXPECT_EQ(board.possibleMoves(false), "(2,4),(3,5),(4,6),(5,3),(6,4)");
+
+    board.playColor(6, 5, true);
+    EXPECT_EQ(board.possibleMoves(true), "(2,2),(3,2),(4,3)");
+    EXPECT_EQ(board.possibleMoves(false), "(2,4),(3,5),(4,6),(6,4),(6,6)");
+
+    board.playColor(3, 5, false);
+    EXPECT_EQ(board.possibleMoves(true), "(2,2),(2,3),(2,4),(2,5),(4,3)");
+    EXPECT_EQ(board.possibleMoves(false), "(4,6),(5,6),(6,4),(6,6),(7,5)");
+
+    board.playColor(2, 3, true);
+    EXPECT_EQ(board.possibleMoves(true), "(2,2),(2,5),(3,2),(3,6),(4,3)");
+    EXPECT_EQ(board.possibleMoves(false), "(1,3),(2,4),(4,6),(6,4),(6,6),(7,5)");
 
 }
 
+TEST(Boad_funcs, opponent_score_for_move) {
+    Board board = Board();
+    EXPECT_EQ(board.OpponentScoreForMove(3, 4, true), 1);
+    EXPECT_EQ(board.OpponentScoreForMove(4, 3, true), 1);
+    EXPECT_EQ(board.OpponentScoreForMove(5, 6, true), 1);
+    EXPECT_EQ(board.OpponentScoreForMove(6, 5, true), 1);
+    EXPECT_EQ(board.OpponentScoreForMove(3, 5, false), 1);
+    EXPECT_EQ(board.OpponentScoreForMove(4, 6, false), 1);
+    EXPECT_EQ(board.OpponentScoreForMove(5, 3, false), 1);
+    EXPECT_EQ(board.OpponentScoreForMove(6, 4, false), 1);
+
+    board.playColor(3, 4, true);
+    EXPECT_EQ(board.OpponentScoreForMove(5, 6, true), 0);
+    EXPECT_EQ(board.OpponentScoreForMove(6, 6, true), 0);
+    EXPECT_EQ(board.OpponentScoreForMove(6, 5, true), 0);
+    EXPECT_EQ(board.OpponentScoreForMove(3, 3, false), 3);
+    EXPECT_EQ(board.OpponentScoreForMove(3, 5, false), 3);
+    EXPECT_EQ(board.OpponentScoreForMove(5, 3, false), 3);
+
+    board.playColor(3, 3, false);
+    EXPECT_EQ(board.OpponentScoreForMove(3, 2, true), 2);
+    EXPECT_EQ(board.OpponentScoreForMove(4, 3, true), 2);
+    EXPECT_EQ(board.OpponentScoreForMove(6, 5, true), 2);
+    EXPECT_EQ(board.OpponentScoreForMove(5, 6, true), 2);
+    EXPECT_EQ(board.OpponentScoreForMove(3, 5, false), 1);
+    EXPECT_EQ(board.OpponentScoreForMove(4, 6, false), 2);
+    EXPECT_EQ(board.OpponentScoreForMove(6, 4, false), 2);
+
+
+    // check for illegal moves
+    EXPECT_EQ(board.OpponentScoreForMove(3, 8, true), 3);
+    EXPECT_EQ(board.OpponentScoreForMove(1, 1, false), 3);
+    EXPECT_EQ(board.OpponentScoreForMove(6, 8, true), 3);
+    EXPECT_EQ(board.OpponentScoreForMove(4, 1, false), 3);
+    EXPECT_EQ(board.OpponentScoreForMove(-1, 8, true), 3);
+    EXPECT_EQ(board.OpponentScoreForMove(-1, -1, false), 3);
+
+}
 
 

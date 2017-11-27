@@ -204,15 +204,15 @@ int Board::OpponentScoreForMove(int moveRow, int moveCol, bool color){
     // legalMoveDirection will return the number of cell that change color from the opponent color
     // to current color, the opponent score after the move will be the subtraction of the
     // those cells from the score before the move
-    if(!getCell(moveRow, moveCol).isOutOfBoud() || !getCell(moveRow, moveCol).isColored()) {
-        scoreOpponentColor -= legalMoveDirection(getCell(moveRow, moveCol), color, UP);
-        scoreOpponentColor -= legalMoveDirection(getCell(moveRow, moveCol), color, UP_RIGHT);
-        scoreOpponentColor -= legalMoveDirection(getCell(moveRow, moveCol), color, RIGHT);
-        scoreOpponentColor -= legalMoveDirection(getCell(moveRow, moveCol), color, DOWN_RIGHT);
-        scoreOpponentColor -= legalMoveDirection(getCell(moveRow, moveCol), color, DOWN);
-        scoreOpponentColor -= legalMoveDirection(getCell(moveRow, moveCol), color, DOWN_LEFT);
-        scoreOpponentColor -= legalMoveDirection(getCell(moveRow, moveCol), color, LEFT);
-        scoreOpponentColor -= legalMoveDirection(getCell(moveRow, moveCol), color, UP_LEFT);
+    if(!getCell(moveRow - 1, moveCol - 1).isOutOfBoud() || !getCell(moveRow - 1, moveCol - 1).isColored()) {
+        scoreOpponentColor -= legalMoveDirection(getCell(moveRow - 1, moveCol - 1), color, UP);
+        scoreOpponentColor -= legalMoveDirection(getCell(moveRow - 1, moveCol - 1), color, UP_RIGHT);
+        scoreOpponentColor -= legalMoveDirection(getCell(moveRow - 1, moveCol - 1), color, RIGHT);
+        scoreOpponentColor -= legalMoveDirection(getCell(moveRow - 1, moveCol - 1), color, DOWN_RIGHT);
+        scoreOpponentColor -= legalMoveDirection(getCell(moveRow - 1, moveCol - 1), color, DOWN);
+        scoreOpponentColor -= legalMoveDirection(getCell(moveRow - 1, moveCol - 1), color, DOWN_LEFT);
+        scoreOpponentColor -= legalMoveDirection(getCell(moveRow - 1, moveCol - 1), color, LEFT);
+        scoreOpponentColor -= legalMoveDirection(getCell(moveRow - 1, moveCol - 1), color, UP_LEFT);
     }
     return scoreOpponentColor;
 }
@@ -329,7 +329,7 @@ int Board::score(bool color) const {
     int count = 0;
     for(int i = 0; i < row; i++)
         for(int j = 0; j < col; j++) {
-            if (getCell(i, j).getColor() == color)
+            if (getCell(i, j).isColored() && getCell(i, j).getColor() == color)
                 count++;
         }
     return count;
