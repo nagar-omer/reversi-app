@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/lib/googletest-master/googletest/src/gtest-all.cc" "/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/cmake-build-debug/lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.o"
-  "/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/lib/googletest-master/googlemock/src/gmock-all.cc" "/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/cmake-build-debug/lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.o"
-  "/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/lib/googletest-master/googlemock/src/gmock_main.cc" "/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/cmake-build-debug/lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o"
+  "/home/oved/CLionProjects/testGit/Reversi_ap1/Reversi/lib/googletest-master/googletest/src/gtest-all.cc" "/home/oved/CLionProjects/testGit/Reversi_ap1/Reversi/cmake-build-debug/lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.o"
+  "/home/oved/CLionProjects/testGit/Reversi_ap1/Reversi/lib/googletest-master/googlemock/src/gmock-all.cc" "/home/oved/CLionProjects/testGit/Reversi_ap1/Reversi/cmake-build-debug/lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.o"
+  "/home/oved/CLionProjects/testGit/Reversi_ap1/Reversi/lib/googletest-master/googlemock/src/gmock_main.cc" "/home/oved/CLionProjects/testGit/Reversi_ap1/Reversi/cmake-build-debug/lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

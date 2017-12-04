@@ -1,15 +1,17 @@
 /*****************************************************************************
  * Student Name:    Oved Nagar                                               *
  * Id:              302824875                                                *
- * Exercise name:   Ex1                                                      *
- * File description: This file contains the Board Class header               *
+ * Student Name:    Orly Paknahad                                            *
+ * Id:              315444646                                                *
+ * Exercise name:   Ex3                                                      *
  ****************************************************************************/
+
 
 #ifndef REVERSIPLAYER_H
 #define REVERSIPLAYER_H
 
-#include "Player.h"
-#include "Board.h"
+#include "../include/Player.h"
+#include "../include/Board.h"
 #include <vector>
 
 /*****************************************************************************

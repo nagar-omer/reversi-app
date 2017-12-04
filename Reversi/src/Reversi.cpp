@@ -28,7 +28,7 @@ bool Reversi::play(ReversiPlayer player){
  * Input: override method for Game "Interface" - starting game               *
  ****************************************************************************/
 void Reversi::startGame(){
-    bool gameOver = false, blackCanPlay, whiteCanPlay;
+    bool gameOver = false, blackCanPlay = false, whiteCanPlay = true;
     while(!gameOver){
         // white player turn
         whiteCanPlay = true;

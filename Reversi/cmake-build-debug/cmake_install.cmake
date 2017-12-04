@@ -1,4 +1,4 @@
-# Install script for directory: /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi
+# Install script for directory: /home/oved/CLionProjects/testGit/Reversi_ap1/Reversi
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/cmake-build-debug/lib/googletest-master/cmake_install.cmake")
+  include("/home/oved/CLionProjects/testGit/Reversi_ap1/Reversi/cmake-build-debug/lib/googletest-master/cmake_install.cmake")
 
 endif()
 
@@ -46,5 +46,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/oved/CLionProjects/testGit/Reversi_ap1/Reversi/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

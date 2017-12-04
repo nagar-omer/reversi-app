@@ -1,3 +1,11 @@
+/*****************************************************************************
+ * Student Name:    Oved Nagar                                               *
+ * Id:              302824875                                                *
+ * Student Name:    Orly Paknahad                                            *
+ * Id:              315444646                                                *
+ * Exercise name:   Ex3                                                      *
+ ****************************************************************************/
+
 #include "gtest/gtest.h"
 #include "../include/Reversi.h"
 

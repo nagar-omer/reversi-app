@@ -1,15 +1,16 @@
 /*****************************************************************************
  * Student Name:    Oved Nagar                                               *
  * Id:              302824875                                                *
- * Exercise name:   Ex1                                                      *
- * File description: This file contains the Board Class header               *
+ * Student Name:    Orly Paknahad                                            *
+ * Id:              315444646                                                *
+ * Exercise name:   Ex3                                                      *
  ****************************************************************************/
 
 #ifndef OTHELLO_PLAYGROUND_H
 #define OTHELLO_PLAYGROUND_H
 
-#include "Player.h"
-#include "Reversi.h"
+#include "../include/Player.h"
+#include "../include/Reversi.h"
 
 class PlayGround {
     enum menue {NEW_PLAYER = 1, NEW_GAME = 2, EXIT = 3};
