@@ -23,6 +23,8 @@ void ReversiOnlinePlayer::playReversiMove(int *lastMove, Board &board) {
     istringstream in(move_str);
     // get final result as ints
     in >> lastMove[0] >> lastMove[1];
+    if (lastMove[0] == -1)
+        cout << "opponent cant play.." << endl << endl;
 }
 
 void ReversiOnlinePlayer::gameOver() {
