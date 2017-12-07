@@ -22,10 +22,11 @@
 
 class ReversiOnlinePlayer: public ReversiPlayer{
     int server;
-    ostringstream sd;
 public:
     ReversiOnlinePlayer(Player *player, bool color, int serverSocket);
     virtual void playReversiMove(int *lastMove, Board &board);
+
+    virtual void gameOver();
 };
 
 #endif //REVERSI_ONLINE_PLAYER_H

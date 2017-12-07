@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/orly/CLionProjects/Server/Server.cpp" "/home/orly/CLionProjects/Server/cmake-build-debug/CMakeFiles/Server.dir/Server.cpp.o"
-  "/home/orly/CLionProjects/Server/main.cpp" "/home/orly/CLionProjects/Server/cmake-build-debug/CMakeFiles/Server.dir/main.cpp.o"
+  "/home/oved/CLionProjects/advanced_1/Reversi_ap1/Server/Server.cpp" "/home/oved/CLionProjects/advanced_1/Reversi_ap1/Server/cmake-build-debug/CMakeFiles/Server.dir/Server.cpp.o"
+  "/home/oved/CLionProjects/advanced_1/Reversi_ap1/Server/main.cpp" "/home/oved/CLionProjects/advanced_1/Reversi_ap1/Server/cmake-build-debug/CMakeFiles/Server.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

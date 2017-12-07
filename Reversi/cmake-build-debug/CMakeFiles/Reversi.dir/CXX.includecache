@@ -339,6 +339,24 @@ ReversiOnlinePlayer.h
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/ReversiOnlinePlayer.h
 ../include/ReversiPlayer.h
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/ReversiPlayer.h
+sys/socket.h
+-
+netinet/in.h
+-
+unistd.h
+-
+string.h
+-
+iostream
+-
+netdb.h
+-
+arpa/inet.h
+-
+fstream
+-
+sstream
+-
 
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/ReversiPcPlayer.h
 ../include/ReversiPlayer.h

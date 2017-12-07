@@ -99,47 +99,47 @@ void Server::handleClient(int clientSocket1, int clientSocket2) {
             cout << "Client disconnected" << endl;
             return;
         }
-        cout << "Got Move: " << move  << endl;
+        cout << "Got Move: " << move << endl;
 
         //send the move to other player
-        if(move[0]!='N'){//“NoMove”
-        n = write(clientSocket2, &move, sizeof(move));
-        if (n == -1) {
-            cout << "Error writing to socket" << endl;
-            return;
-        }
-        if(move[0]=='E')// end the game
-            break;
-        //the first client tha see that the board is full, send a msg "End" to sever
-        //and the server sent it to the other client
+        if (move[0] != 'N') {//“NoMove”
+            n = write(clientSocket2, &move, sizeof(move));
+            if (n == -1) {
+                cout << "Error writing to socket" << endl;
+                return;
+            }
+            if (move[0] == 'E')// end the game
+                break;
+            //the first client tha see that the board is full, send a msg "End" to sever
+            //and the server sent it to the other client
 
-        // Read new move argument from client 2
-        n = read(clientSocket2, &move, sizeof(move));
-        if (n == -1) {
-            cout << "Error reading move" << endl;
-            return;
+            // Read new move argument from client 2
+            n = read(clientSocket2, &move, sizeof(move));
+            if (n == -1) {
+                cout << "Error reading move" << endl;
+                return;
+            }
+            if (n == 0) {
+                cout << "Client disconnected" << endl;
+                return;
+            }
+            cout << "Got Move: " << move << endl;
+            //send the move to other player
+            n = write(clientSocket1, &move, sizeof(move));
+            if (n == -1) {
+                cout << "Error writing to socket" << endl;
+                return;
+            }
+            if (move[0] == 'E')// end the game
+                break;
+            //the first client tha see that the board is full, send a msg "End" to sever
+            //and the server sent it to the other client
         }
-        if (n == 0) {
-            cout << "Client disconnected" << endl;
-            return;
-        }
-        cout << "Got Move: " << move  << endl;
-        //send the move to other player
-        n = write(clientSocket1, &move, sizeof(move));
-        if (n == -1) {
-            cout << "Error writing to socket" << endl;
-            return;
-        }
-        if(move[0]=='E')// end the game
-            break;
-        //the first client tha see that the board is full, send a msg "End" to sever
-        //and the server sent it to the other client
+        cout << "close server" << endl;
+        //TODO
     }
-    cout << "close server" << endl;
-    //TODO
+
 }
-
-
 void Server::stop() {
     close(serverSocket);
 }

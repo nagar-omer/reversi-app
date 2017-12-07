@@ -30,6 +30,11 @@ void ReversiOnlinePlayer::playReversiMove(int *lastMove, Board &board) {
     istringstream in(move_str);
     // get final result as ints
     in >> lastMove[0] >> lastMove[1];
-    if( !board.isMovePossible(lastMove[0], lastMove[1], this->color))
+    if( !board.isMovePossible(lastMove[0] - 1, lastMove[1] -1, this->color))
         throw "Error - online move illegal";
+}
+
+void ReversiOnlinePlayer::gameOver() {
+    write(server, "End", 8);
+    close(server);
 };

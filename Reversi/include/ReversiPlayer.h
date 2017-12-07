@@ -80,6 +80,7 @@ public:
      * Output: initialize player reference and save the color                    *
      ****************************************************************************/
     virtual void playReversiMove(int result[2], Board &board) = 0;
+    virtual void gameOver() {};
 };
 
 

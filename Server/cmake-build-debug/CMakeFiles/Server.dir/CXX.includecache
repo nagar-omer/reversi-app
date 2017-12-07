@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/orly/CLionProjects/Server/Server.cpp
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Server/Server.cpp
 Server.h
-/home/orly/CLionProjects/Server/Server.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Server/Server.h
 sys/socket.h
 -
 netinet/in.h
@@ -20,11 +20,11 @@ iostream
 string.h
 -
 
-/home/orly/CLionProjects/Server/Server.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Server/Server.h
 
-/home/orly/CLionProjects/Server/main.cpp
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Server/main.cpp
 Server.h
-/home/orly/CLionProjects/Server/Server.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Server/Server.h
 iostream
 -
 stdlib.h

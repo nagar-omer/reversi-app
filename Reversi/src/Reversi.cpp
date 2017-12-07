@@ -64,6 +64,9 @@ void Reversi::startGame(){
             break;
         }
     }
+    // inform players that the game is over
+    black->gameOver();
+    white->gameOver();
     // GAME OVER !!
     cout << endl << endl;
     cout << "------------------------------------------------------------------";
@@ -147,6 +150,7 @@ void Reversi::initPlayer(int playerNum, Player *player, bool color) {
                 player1 = new ReversiOnlinePlayer(player, color, clientSocket);
             else
                 player2 = new ReversiOnlinePlayer(player, color, clientSocket);
+            break;
         default:
             if (playerNum == 1)
                 player1 = new ReversiLocalPlayer(player, color);
@@ -166,10 +170,14 @@ Reversi::Reversi(Player *firstPlayer, Player *seconedPlayer, int rowSize, int co
     // if online game connect to server and get colors for the players
     if (firstPlayer->getPlayerType() == Player::ONLINE_PLAYER) {
         // connect to server to get messages from the online player
+        cout << "connecting to server ..." << endl;
         connectServer();
+        cout << "connected!" << endl;
+        cout << "waiting for other player to join..." << endl;
         // get player color
         char color_c;
         read(clientSocket, &color_c, 1);
+        cout << "second player connected!"<< endl;
         if (color_c == '1')
             secondLocalPlayerColor = Board::BLACK;
         else
@@ -179,5 +187,4 @@ Reversi::Reversi(Player *firstPlayer, Player *seconedPlayer, int rowSize, int co
     initPlayer(1, firstPlayer, !secondLocalPlayerColor);
     // init second player
     initPlayer(2, seconedPlayer, secondLocalPlayerColor);
-
 };

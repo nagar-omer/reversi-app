@@ -8,10 +8,9 @@
 #include "../include/PlayGround.h"
 
 //TODO remove comment
-/*
+
 int main() {
     PlayGround playGround;
     playGround.go();
     return 0;
 }
-*/
