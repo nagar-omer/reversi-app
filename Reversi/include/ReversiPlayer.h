@@ -7,8 +7,8 @@
  ****************************************************************************/
 
 
-#ifndef REVERSIPLAYER_H
-#define REVERSIPLAYER_H
+#ifndef REVERSI_PLAYER_H
+#define REVERSI_PLAYER_H
 
 #include "../include/Player.h"
 #include "../include/Board.h"
@@ -18,6 +18,7 @@
  * Board Class: this class contains the board of the game                    *
  ****************************************************************************/
 class ReversiPlayer {
+protected:
     /*****************************************************************************
      * Inner Class Point: makes it easier to store x,y in a vector   (mutable)   *
      ****************************************************************************/
@@ -30,7 +31,7 @@ class ReversiPlayer {
         int getY() const { return y; };
     };
 
-    Player &playerRef;
+    Player *playerRef;
     bool color;
     char flag;
     /*****************************************************************************
@@ -39,18 +40,6 @@ class ReversiPlayer {
      * Output: vector containing Points for all possible options                 *
      ****************************************************************************/
     vector<Point *> *stringOptionToVector(const string &options) const;
-    /*****************************************************************************
-     * Function name: userMove                                                   *
-     * Input: array for returning result, string for possible options            *
-     * Output: user picking according to user input                              *
-     ****************************************************************************/
-    void userMove(int result[2], Board &bord);
-    /*****************************************************************************
-     * Function name: computerMove                                               *
-     * Input: array for returning result, string for possible options            *
-     * Output: computer picking according to possibilities                       *
-     ****************************************************************************/
-    void computerMove(int result[2], Board &board);
     /*****************************************************************************
      * Function name: PressKeyToContinue - waiting for ENTER                     *
      ****************************************************************************/
@@ -70,7 +59,7 @@ public:
      * Input: player and color(BLACK / WHITE                                     *
      * Output: initialize player reference and save the color                    *
      ****************************************************************************/
-    ReversiPlayer(Player &player, bool color):playerRef(player) {
+    ReversiPlayer(Player *player, bool color):playerRef(player) {
         this->color = color;
         if(color)
             flag = 'X';
@@ -80,7 +69,7 @@ public:
     /*****************************************************************************
      * Function name: getPlayer - return player reference                        *
      ****************************************************************************/
-    Player &getPlayer() const { return playerRef; };
+    Player *getPlayer() const { return playerRef; };
     /*****************************************************************************
      * Function name: getColor - returs color (BLACK/WHITE)                      *
      ****************************************************************************/
@@ -90,9 +79,9 @@ public:
      * Input: array to return result, string representing the move options       *
      * Output: initialize player reference and save the color                    *
      ****************************************************************************/
-    void playReversiMove(int result[2], Board &board);
+    virtual void playReversiMove(int result[2], Board &board) = 0;
 };
 
 
 
-#endif //REVERSIPLAYER_H
+#endif //REVERSI_PLAYER_H

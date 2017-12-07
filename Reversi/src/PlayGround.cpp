@@ -12,32 +12,55 @@
  * Operation: creates reversi object and starts the game                     *
  ****************************************************************************/
 void PlayGround::startReversiGame(){
-    // Enter first player by id
-    cout << "enter player ID for first player (1 for Computer)" << endl;
-    int id1;
-    cin >> id1;
+    cout << "choose game type:" << endl;
+    cout << "\t1.\t play against PC" << endl;
+    cout << "\t2.\t 2 player online game" << endl;
+    cout << "\t3.\t 2 player local game" << endl;
+    cout << "\tdefault.\t play against PC" << endl;
+
+    int gameType, id1, id2;
+    cin >> gameType;
     Player *player1 = NULL;
-    while((player1 = getPlayerByID(id1)) == NULL){
-        cout << "ID not exist - try again" << endl;
-        cin >> id1;
+    // initiate first player acording to game type
+    switch (gameType){
+        case Player::LOCAL_PLAYER:
+            // Enter first player by id
+            cout << "enter player ID for first player" << endl;
+            cin >> id1;
+            // id 1/2 reserved for pc and online players
+            while( id1 == Player::PC || id1 == Player::ONLINE_PLAYER || (player1 = getPlayerByID(id1)) == NULL){
+                cout << "ID not exist - try again" << endl;
+                cin >> id1;
+            }
+            break;
+        case Player::PC:
+            player1 = getPlayerByID(Player::PC);
+            break;
+        case Player::ONLINE_PLAYER:
+            player1 = getPlayerByID(Player::ONLINE_PLAYER);
+            break;
+        default:
+            player1 = getPlayerByID(Player::PC);
+            break;
     }
 
+
     // Enter second player by id
-    cout << "enter player ID for second player (1 for Computer)" << endl;
-    int id2;
+    cout << "enter player ID for second player" << endl;
     cin >> id2;
     Player *player2 = NULL;
-    while( id1 == id2 || (player2 = getPlayerByID(id2)) == NULL ){
+    // id 1/2 reserved for pc and online players
+    while(id2 == Player::PC || id2 == Player::ONLINE_PLAYER || id1 == id2 || (player2 = getPlayerByID(id2)) == NULL){
         cout << "ID not exist / same as first player - try again" << endl;
         cin >> id2;
     }
 
     // Board size
     cout << "Board size" << endl;
-    cout << "1. 6X6 " << endl;
-    cout << "2. 8X8 " << endl;
-    cout << "3. 10X10 " << endl;
-    cout << "default. 8X8 " << endl;
+    cout << "\t1.\t 6X6 " << endl;
+    cout << "\t2.\t 8X8 " << endl;
+    cout << "\t3.\t 10X10 " << endl;
+    cout << "\tdefault.\t 8X8 " << endl;
     int size;
     cin >> size;
     switch(size){
@@ -57,7 +80,7 @@ void PlayGround::startReversiGame(){
             size = 8;
     }
 
-    Reversi reversi(*player1,*player2,size,size);
+    Reversi reversi(player1, player2,size,size);
     reversi.startGame();
 }
 
@@ -68,7 +91,7 @@ void PlayGround::startReversiGame(){
 void PlayGround::startGame(){
     int id;
     cout << "Pick a game:" << endl;
-    cout << "1. Reversi" << endl;
+    cout << "\t1.\t Reversi" << endl;
     cin >> id;
     switch (id) {
         case REVERSI: {
@@ -90,7 +113,7 @@ void PlayGround::addPlayer() {
     cout << "Enter Player Nick Name" << endl;
     string nick;
     cin >> nick;
-    players.push_back(new Player(nick));
+    players.push_back(new Player(nick, Player::LOCAL_PLAYER));
     cout << *players.back() << endl;
 }
 
@@ -103,9 +126,9 @@ void PlayGround::go(){
     bool exitMenue = false;
     while(!exitMenue) {
         cout << "Main Menue" << endl;
-        cout << "1. Enter new player" << endl;
-        cout << "2. Start new Game" << endl;
-        cout << "other. Exit" << endl;
+        cout << "\t1.\t Enter new player" << endl;
+        cout << "\t2.\t Start new Game" << endl;
+        cout << "\tother.\t Exit" << endl;
         int pick;
         cin >> pick;
         switch (pick) {

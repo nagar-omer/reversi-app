@@ -18,21 +18,26 @@ using namespace std;
 static int serialAssign = 1;
 
 class Player {
+public:
+    enum playerType { PC = 1, ONLINE_PLAYER, LOCAL_PLAYER};
+
+private:
     string nickName;
     int serialNumber, totalwin, totalLoss;
-    bool computer;
+    playerType type;
 public:
+
     /*****************************************************************************
      * Function name: constructor                                                *
      * Input: player nick name, boolean val for Comp user initialized to false   *
      * Output: initiate name, wins losses to 0, giving the player an Id num      *
      ****************************************************************************/
-    Player(const string &nick, bool isComp = false){
+    Player(const string &nick, playerType type){
         nickName = nick;
         serialNumber = serialAssign++;
         totalwin = 0;
         totalLoss = 0;
-        computer = isComp;
+        this->type = type;
     }
 
     /*****************************************************************************
@@ -72,8 +77,8 @@ public:
      * Output: returns boolean value to indicate if the player is representing   *
      *           a compute                                                       *
      ****************************************************************************/
-    bool isComputer(){
-        return computer;
+    playerType getPlayerType(){
+        return type;
     }
 
     /*****************************************************************************

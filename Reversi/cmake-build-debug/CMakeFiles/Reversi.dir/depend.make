@@ -9,6 +9,9 @@ CMakeFiles/Reversi.dir/src/PlayGround.cpp.o: ../include/Game.h
 CMakeFiles/Reversi.dir/src/PlayGround.cpp.o: ../include/PlayGround.h
 CMakeFiles/Reversi.dir/src/PlayGround.cpp.o: ../include/Player.h
 CMakeFiles/Reversi.dir/src/PlayGround.cpp.o: ../include/Reversi.h
+CMakeFiles/Reversi.dir/src/PlayGround.cpp.o: ../include/ReversiLocalPlayer.h
+CMakeFiles/Reversi.dir/src/PlayGround.cpp.o: ../include/ReversiOnlinePlayer.h
+CMakeFiles/Reversi.dir/src/PlayGround.cpp.o: ../include/ReversiPcPlayer.h
 CMakeFiles/Reversi.dir/src/PlayGround.cpp.o: ../include/ReversiPlayer.h
 CMakeFiles/Reversi.dir/src/PlayGround.cpp.o: ../src/PlayGround.cpp
 
@@ -19,8 +22,29 @@ CMakeFiles/Reversi.dir/src/Reversi.cpp.o: ../include/Board.h
 CMakeFiles/Reversi.dir/src/Reversi.cpp.o: ../include/Game.h
 CMakeFiles/Reversi.dir/src/Reversi.cpp.o: ../include/Player.h
 CMakeFiles/Reversi.dir/src/Reversi.cpp.o: ../include/Reversi.h
+CMakeFiles/Reversi.dir/src/Reversi.cpp.o: ../include/ReversiLocalPlayer.h
+CMakeFiles/Reversi.dir/src/Reversi.cpp.o: ../include/ReversiOnlinePlayer.h
+CMakeFiles/Reversi.dir/src/Reversi.cpp.o: ../include/ReversiPcPlayer.h
 CMakeFiles/Reversi.dir/src/Reversi.cpp.o: ../include/ReversiPlayer.h
 CMakeFiles/Reversi.dir/src/Reversi.cpp.o: ../src/Reversi.cpp
+
+CMakeFiles/Reversi.dir/src/ReversiLocalPlayer.cpp.o: ../include/Board.h
+CMakeFiles/Reversi.dir/src/ReversiLocalPlayer.cpp.o: ../include/Player.h
+CMakeFiles/Reversi.dir/src/ReversiLocalPlayer.cpp.o: ../include/ReversiLocalPlayer.h
+CMakeFiles/Reversi.dir/src/ReversiLocalPlayer.cpp.o: ../include/ReversiPlayer.h
+CMakeFiles/Reversi.dir/src/ReversiLocalPlayer.cpp.o: ../src/ReversiLocalPlayer.cpp
+
+CMakeFiles/Reversi.dir/src/ReversiOnlinePlayer.cpp.o: ../include/Board.h
+CMakeFiles/Reversi.dir/src/ReversiOnlinePlayer.cpp.o: ../include/Player.h
+CMakeFiles/Reversi.dir/src/ReversiOnlinePlayer.cpp.o: ../include/ReversiOnlinePlayer.h
+CMakeFiles/Reversi.dir/src/ReversiOnlinePlayer.cpp.o: ../include/ReversiPlayer.h
+CMakeFiles/Reversi.dir/src/ReversiOnlinePlayer.cpp.o: ../src/ReversiOnlinePlayer.cpp
+
+CMakeFiles/Reversi.dir/src/ReversiPcPlayer.cpp.o: ../include/Board.h
+CMakeFiles/Reversi.dir/src/ReversiPcPlayer.cpp.o: ../include/Player.h
+CMakeFiles/Reversi.dir/src/ReversiPcPlayer.cpp.o: ../include/ReversiPcPlayer.h
+CMakeFiles/Reversi.dir/src/ReversiPcPlayer.cpp.o: ../include/ReversiPlayer.h
+CMakeFiles/Reversi.dir/src/ReversiPcPlayer.cpp.o: ../src/ReversiPcPlayer.cpp
 
 CMakeFiles/Reversi.dir/src/ReversiPlayer.cpp.o: ../include/Board.h
 CMakeFiles/Reversi.dir/src/ReversiPlayer.cpp.o: ../include/Player.h
@@ -32,6 +56,9 @@ CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/Game.h
 CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/PlayGround.h
 CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/Player.h
 CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/Reversi.h
+CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/ReversiLocalPlayer.h
+CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/ReversiOnlinePlayer.h
+CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/ReversiPcPlayer.h
 CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/ReversiPlayer.h
 CMakeFiles/Reversi.dir/src/main.cpp.o: ../src/main.cpp
 
@@ -136,6 +163,9 @@ CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../include/Board.h
 CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../include/Game.h
 CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../include/Player.h
 CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../include/Reversi.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../include/ReversiLocalPlayer.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../include/ReversiOnlinePlayer.h
+CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../include/ReversiPcPlayer.h
 CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../include/ReversiPlayer.h
 CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../tests/test_Reversi.cpp
 
@@ -163,6 +193,8 @@ CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/
 CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
 CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../include/Board.h
 CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../include/Player.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../include/ReversiLocalPlayer.h
+CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../include/ReversiPcPlayer.h
 CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../include/ReversiPlayer.h
 CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o: ../tests/test_ReversiPlayer.cpp
 

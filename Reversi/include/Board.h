@@ -142,14 +142,6 @@ class Board {
     const Cell &getCell(int i, int j) const;
 
     /*************************************************************************
-    * Function name: isMovePossible                                         *
-    * Input: row, column and (BLACK = 1, WHITE = 0)                         *
-    * Output: returns true if its legal to paint cell in requested color    *
-    *          and false otherwise                                          *
-    ************************************************************************/
-    bool isMovePossible(int moveRow, int moveCol, bool color);
-
-    /*************************************************************************
      * Function name: legalMoveDirection                                     *
      * Input: starting cell color(BLACK = 1, WHITE = 0) direction and a bool *
      * value to indicate if paint cells or just return answer for possibility*
@@ -185,6 +177,14 @@ public:
      * operation: creates starting board col X row (default 8X8)             *
      ************************************************************************/
     Board(int row = 8, int col = 8);
+
+    /*************************************************************************
+    * Function name: isMovePossible                                         *
+    * Input: row, column and (BLACK = 1, WHITE = 0)                         *
+    * Output: returns true if its legal to paint cell in requested color    *
+    *          and false otherwise                                          *
+    ************************************************************************/
+    bool isMovePossible(int moveRow, int moveCol, bool color);
 
     /*************************************************************************
      * Function name: operator <<                                            *

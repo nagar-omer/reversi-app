@@ -48,10 +48,10 @@ RM = /home/oved/Programs/clion-2017.2.3/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/oved/CLionProjects/testGit/Reversi_ap1/Reversi
+CMAKE_SOURCE_DIR = /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/oved/CLionProjects/testGit/Reversi_ap1/Reversi/cmake-build-debug
+CMAKE_BINARY_DIR = /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,9 +126,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/oved/CLionProjects/testGit/Reversi_ap1/Reversi/cmake-build-debug/CMakeFiles /home/oved/CLionProjects/testGit/Reversi_ap1/Reversi/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/cmake-build-debug/CMakeFiles /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/oved/CLionProjects/testGit/Reversi_ap1/Reversi/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -328,6 +328,87 @@ src/Reversi.s: src/Reversi.cpp.s
 src/Reversi.cpp.s:
 	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/src/Reversi.cpp.s
 .PHONY : src/Reversi.cpp.s
+
+src/ReversiLocalPlayer.o: src/ReversiLocalPlayer.cpp.o
+
+.PHONY : src/ReversiLocalPlayer.o
+
+# target to build an object file
+src/ReversiLocalPlayer.cpp.o:
+	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/src/ReversiLocalPlayer.cpp.o
+.PHONY : src/ReversiLocalPlayer.cpp.o
+
+src/ReversiLocalPlayer.i: src/ReversiLocalPlayer.cpp.i
+
+.PHONY : src/ReversiLocalPlayer.i
+
+# target to preprocess a source file
+src/ReversiLocalPlayer.cpp.i:
+	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/src/ReversiLocalPlayer.cpp.i
+.PHONY : src/ReversiLocalPlayer.cpp.i
+
+src/ReversiLocalPlayer.s: src/ReversiLocalPlayer.cpp.s
+
+.PHONY : src/ReversiLocalPlayer.s
+
+# target to generate assembly for a file
+src/ReversiLocalPlayer.cpp.s:
+	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/src/ReversiLocalPlayer.cpp.s
+.PHONY : src/ReversiLocalPlayer.cpp.s
+
+src/ReversiOnlinePlayer.o: src/ReversiOnlinePlayer.cpp.o
+
+.PHONY : src/ReversiOnlinePlayer.o
+
+# target to build an object file
+src/ReversiOnlinePlayer.cpp.o:
+	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/src/ReversiOnlinePlayer.cpp.o
+.PHONY : src/ReversiOnlinePlayer.cpp.o
+
+src/ReversiOnlinePlayer.i: src/ReversiOnlinePlayer.cpp.i
+
+.PHONY : src/ReversiOnlinePlayer.i
+
+# target to preprocess a source file
+src/ReversiOnlinePlayer.cpp.i:
+	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/src/ReversiOnlinePlayer.cpp.i
+.PHONY : src/ReversiOnlinePlayer.cpp.i
+
+src/ReversiOnlinePlayer.s: src/ReversiOnlinePlayer.cpp.s
+
+.PHONY : src/ReversiOnlinePlayer.s
+
+# target to generate assembly for a file
+src/ReversiOnlinePlayer.cpp.s:
+	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/src/ReversiOnlinePlayer.cpp.s
+.PHONY : src/ReversiOnlinePlayer.cpp.s
+
+src/ReversiPcPlayer.o: src/ReversiPcPlayer.cpp.o
+
+.PHONY : src/ReversiPcPlayer.o
+
+# target to build an object file
+src/ReversiPcPlayer.cpp.o:
+	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/src/ReversiPcPlayer.cpp.o
+.PHONY : src/ReversiPcPlayer.cpp.o
+
+src/ReversiPcPlayer.i: src/ReversiPcPlayer.cpp.i
+
+.PHONY : src/ReversiPcPlayer.i
+
+# target to preprocess a source file
+src/ReversiPcPlayer.cpp.i:
+	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/src/ReversiPcPlayer.cpp.i
+.PHONY : src/ReversiPcPlayer.cpp.i
+
+src/ReversiPcPlayer.s: src/ReversiPcPlayer.cpp.s
+
+.PHONY : src/ReversiPcPlayer.s
+
+# target to generate assembly for a file
+src/ReversiPcPlayer.cpp.s:
+	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/src/ReversiPcPlayer.cpp.s
+.PHONY : src/ReversiPcPlayer.cpp.s
 
 src/ReversiPlayer.o: src/ReversiPlayer.cpp.o
 
@@ -547,6 +628,15 @@ help:
 	@echo "... src/Reversi.o"
 	@echo "... src/Reversi.i"
 	@echo "... src/Reversi.s"
+	@echo "... src/ReversiLocalPlayer.o"
+	@echo "... src/ReversiLocalPlayer.i"
+	@echo "... src/ReversiLocalPlayer.s"
+	@echo "... src/ReversiOnlinePlayer.o"
+	@echo "... src/ReversiOnlinePlayer.i"
+	@echo "... src/ReversiOnlinePlayer.s"
+	@echo "... src/ReversiPcPlayer.o"
+	@echo "... src/ReversiPcPlayer.i"
+	@echo "... src/ReversiPcPlayer.s"
 	@echo "... src/ReversiPlayer.o"
 	@echo "... src/ReversiPlayer.i"
 	@echo "... src/ReversiPlayer.s"

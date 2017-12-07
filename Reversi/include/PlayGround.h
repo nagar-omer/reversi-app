@@ -47,7 +47,10 @@ public:
      ****************************************************************************/
     PlayGround(){
         // creating Computer User
-        players.push_back(new Player("Computer", true));
+        // serial number 1
+        players.push_back(new Player("PC", Player::PC));
+        // serial number 2
+        players.push_back(new Player("ONLINE", Player::ONLINE_PLAYER));
     };
 
     /*****************************************************************************

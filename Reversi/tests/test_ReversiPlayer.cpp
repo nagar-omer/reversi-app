@@ -9,28 +9,34 @@
 
 #include "gtest/gtest.h"
 #include "../include/ReversiPlayer.h"
+#include "../include/ReversiPcPlayer.h"
+#include "../include/ReversiLocalPlayer.h"
 
 TEST(ReversiPlayer_construct, legal_construct){
-    Player user = Player("nick");
-    Player pc = Player("pc", true);
+    Player user = Player("nick", Player::LOCAL_PLAYER);
+    Player pc = Player("pc", Player::PC);
 
-    ReversiPlayer reversiUser = ReversiPlayer(user, Board::BLACK);
-    ReversiPlayer reversiPc = ReversiPlayer(pc, Board::WHITE);
+    ReversiPlayer *reversiUser = new ReversiLocalPlayer(&user, Board::BLACK);
+    ReversiPlayer *reversiPc = new ReversiPcPlayer(&pc, Board::WHITE);
 
-    Player checkUser = reversiUser.getPlayer();
-    Player checkPc = reversiPc.getPlayer();
+    Player *checkUser = reversiUser->getPlayer();
+    Player *checkPc = reversiPc->getPlayer();
 
-    EXPECT_EQ(checkPc.nick(), "pc");
-    EXPECT_EQ(checkUser.nick(), "nick");
+    EXPECT_EQ(checkPc->nick(), "pc");
+    EXPECT_EQ(checkUser->nick(), "nick");
 
-    EXPECT_EQ(reversiUser.getColor(), Board::BLACK);
-    EXPECT_EQ(reversiPc.getColor(), Board::WHITE);
+    EXPECT_EQ(reversiUser->getColor(), Board::BLACK);
+    EXPECT_EQ(reversiPc->getColor(), Board::WHITE);
+
+    delete(reversiUser);
+    delete(reversiPc);
+
 }
 
 TEST(ReversiPlayer, play){
-    Player pc = Player("pc", true);
-    ReversiPlayer reversiPcW = ReversiPlayer(pc, Board::WHITE);
-    ReversiPlayer reversiPcB = ReversiPlayer(pc, Board::BLACK);
+    Player pc = Player("pc", Player::PC);
+    ReversiPlayer *reversiPcW = new ReversiPcPlayer(&pc, Board::WHITE);
+    ReversiPlayer *reversiPcB = new ReversiPcPlayer(&pc, Board::BLACK);
     int move[2];
 
     Board board = Board();
@@ -43,14 +49,16 @@ TEST(ReversiPlayer, play){
     board.playColor(2, 3, Board::BLACK);
 
     // getting best option to play from pc - should be (7,5)
-    reversiPcW.playReversiMove(move, board);
+    reversiPcW->playReversiMove(move, board);
     EXPECT_EQ(move[0], 7);
     EXPECT_EQ(move[1], 5);
 
     // continue playing...
     board.playColor(2, 4, Board::WHITE);
-    reversiPcB.playReversiMove(move, board);
+    reversiPcB->playReversiMove(move, board);
     EXPECT_EQ(move[0], 1);
     EXPECT_EQ(move[1], 4);
 
+    delete(reversiPcW);
+    delete(reversiPcB);
 }
