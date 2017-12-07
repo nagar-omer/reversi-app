@@ -47,6 +47,7 @@ void Reversi::startGame(){
         cout << board;
         blackCanPlay = true;
         blackCanPlay = play(black, lastMove);
+        white->sendLastMove(lastMove);
 
         // if both cant play in a single round then GAME-OVER
         if(!blackCanPlay && !whiteCanPlay) {
@@ -57,6 +58,7 @@ void Reversi::startGame(){
         cout << board;
         whiteCanPlay = true;
         whiteCanPlay = play(white, lastMove);
+        black->sendLastMove(lastMove);
 
         // if both cant play in a single round then GAME-OVER
         if(!blackCanPlay && !whiteCanPlay) {

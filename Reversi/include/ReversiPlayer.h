@@ -81,6 +81,7 @@ public:
      ****************************************************************************/
     virtual void playReversiMove(int result[2], Board &board) = 0;
     virtual void gameOver() {};
+    virtual void sendLastMove(int move[2]) {};
 };
 
 

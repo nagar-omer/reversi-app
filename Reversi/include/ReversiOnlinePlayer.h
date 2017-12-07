@@ -27,6 +27,8 @@ public:
     virtual void playReversiMove(int *lastMove, Board &board);
 
     virtual void gameOver();
+
+    virtual void sendLastMove(int *move);
 };
 
 #endif //REVERSI_ONLINE_PLAYER_H

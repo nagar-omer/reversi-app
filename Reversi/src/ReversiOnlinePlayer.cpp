@@ -13,13 +13,6 @@ ReversiOnlinePlayer::ReversiOnlinePlayer(Player *player, bool color, int serverS
 }
 
 void ReversiOnlinePlayer::playReversiMove(int *lastMove, Board &board) {
-    // last move is 0,0 only for first move - no one played yet - there is nothing to send to the server
-    if (lastMove[0] != 0){
-        ostringstream out;
-        out << lastMove[0] << "," << lastMove[1];
-        // send the last move to the server
-        write(server, out.str().c_str(), 8);
-    }
     char move_c[8];
     // wait for online player to make a move.....
     read(server, move_c, 8);
@@ -30,11 +23,17 @@ void ReversiOnlinePlayer::playReversiMove(int *lastMove, Board &board) {
     istringstream in(move_str);
     // get final result as ints
     in >> lastMove[0] >> lastMove[1];
-    if( !board.isMovePossible(lastMove[0] - 1, lastMove[1] -1, this->color))
-        throw "Error - online move illegal";
 }
 
 void ReversiOnlinePlayer::gameOver() {
     write(server, "End", 8);
     close(server);
+}
+
+void ReversiOnlinePlayer::sendLastMove(int *move) {
+    // last move is 0,0 only for first move - no one played yet - there is nothing to send to the server
+    ostringstream out;
+    out << move[0] << "," << move[1];
+    // send the last move to the server
+    write(server, out.str().c_str(), 8);
 };
