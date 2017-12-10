@@ -56,7 +56,7 @@ void Server::start() {
             throw "Error on accept";
 
         //read the board size from client 1
-        int n = read(clientSocket1, boardSize, sizeof(boardSize);
+        int n = read(clientSocket1, boardSize, sizeof(boardSize));
         if (n == -1) {
             cout << "Error reading boardSize" << endl;
             return;
