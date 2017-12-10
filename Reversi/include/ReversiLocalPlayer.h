@@ -19,6 +19,11 @@ public:
      * Output: user picking according to user input                              *
      ****************************************************************************/
     virtual void playReversiMove(int *result, Board &board);
+
+    /*****************************************************************************
+     * Function name: default destructor                                         *
+     ****************************************************************************/
+    virtual ~ReversiLocalPlayer() {};
 };
 
 #endif //REVERSI_LOCAL_PLAYER_H

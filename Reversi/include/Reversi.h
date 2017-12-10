@@ -38,7 +38,18 @@ class Reversi: public Game {
      * Output: play move for requested player                                    *
      ****************************************************************************/
     bool play(ReversiPlayer *player, int lastMove[2]);
+
+    /*****************************************************************************
+     * Function name: initPlayer                                                 *
+     * operation: the function initiate a reversiPlayer object acording to       *
+     * player type                                                               *
+     ****************************************************************************/
     void initPlayer(int playerNum, Player *player, bool color);
+
+    /*****************************************************************************
+     * Function name: connectServer                                              *
+     * operation: the function establishes a connection with the game's server   *
+     ****************************************************************************/
     void connectServer();
 
 public:

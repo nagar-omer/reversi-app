@@ -11,7 +11,7 @@
  * Function name: startReversiGame                                           *
  * Operation: creates reversi object and starts the game                     *
  ****************************************************************************/
-void PlayGround::startReversiGame(){
+void PlayGround::startReversiGame() {
     cout << "choose game type:" << endl;
     cout << "\t1.\t play against PC" << endl;
     cout << "\t2.\t 2 player online game" << endl;
@@ -22,13 +22,13 @@ void PlayGround::startReversiGame(){
     cin >> gameType;
     Player *player1 = NULL;
     // initiate first player acording to game type
-    switch (gameType){
+    switch (gameType) {
         case Player::LOCAL_PLAYER:
             // Enter first player by id
             cout << "enter player ID for first player" << endl;
             cin >> id1;
             // id 1/2 reserved for pc and online players
-            while( id1 == Player::PC || id1 == Player::ONLINE_PLAYER || (player1 = getPlayerByID(id1)) == NULL){
+            while (id1 == Player::PC || id1 == Player::ONLINE_PLAYER || (player1 = getPlayerByID(id1)) == NULL) {
                 cout << "ID not exist - try again" << endl;
                 cin >> id1;
             }
@@ -50,7 +50,7 @@ void PlayGround::startReversiGame(){
     cin >> id2;
     Player *player2 = NULL;
     // id 1/2 reserved for pc and online players
-    while(id2 == Player::PC || id2 == Player::ONLINE_PLAYER || id1 == id2 || (player2 = getPlayerByID(id2)) == NULL){
+    while (id2 == Player::PC || id2 == Player::ONLINE_PLAYER || id1 == id2 || (player2 = getPlayerByID(id2)) == NULL) {
         cout << "ID not exist / same as first player - try again" << endl;
         cin >> id2;
     }
@@ -63,7 +63,7 @@ void PlayGround::startReversiGame(){
     cout << "\tdefault.\t 8X8 " << endl;
     int size;
     cin >> size;
-    switch(size){
+    switch (size) {
         case 1: {
             size = 6;
             break;
@@ -80,10 +80,15 @@ void PlayGround::startReversiGame(){
             size = 8;
     }
 
-    Reversi reversi(player1, player2,size,size);
-    reversi.startGame();
+    try {
+        Reversi reversi(player1, player2, size, size);
+        reversi.startGame();
+    }
+    catch (const char *msg){
+        cout << endl << "CANT START GAME !" << endl;
+        cout << endl << msg << endl << endl;
+    }
 }
-
 /*****************************************************************************
  * Function name: startGame                                                  *
  * Operation: asks from user to choose a game and stars the game             *

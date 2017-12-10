@@ -30,10 +30,9 @@ void Server::start() {
     serverAddress.sin_addr.s_addr = INADDR_ANY;
     serverAddress.sin_port = htons(port);
 
-    if (bind(serverSocket, (struct sockaddr *) &serverAddress, sizeof(serverAddress)) == -1) {
-        throw "Error on binding";
+    if (bind(serverSocket, (struct sockaddr *)&serverAddress, sizeof(serverAddress)) == -1) {
+        throw "Error on binding!";
     }
-
     // Start listening to incoming connections
     listen(serverSocket, MAX_CONNECTED_CLIENTS);
 
@@ -52,13 +51,14 @@ void Server::start() {
             throw "Error on accept";
 
         //send to client 1 - "wait for" msg:
-        int n = write(clientSocket1, "wait for client 2 to connect", sizeof("wait for client 2 to connect"));
-        if (n == -1) {
-            cout << "Error writing to socket1" << endl;
-            return;
-        }
+        //int n = write(clientSocket1, "wait for client 2 to connect", sizeof("wait for client 2 to connect"));
+        //if (n == -1) {
+        //    cout << "Error writing to socket1" << endl;
+        //    return;
+        //}
 
         cout << "Waiting for client2 connections..." << endl;
+        //stop();
         // Accept a new client 2 connection
         int clientSocket2 = accept(serverSocket, (struct sockaddr *) &clientAddress2, &clientAddressLen2);
         cout << "Client 2 connected" << endl;
@@ -66,13 +66,13 @@ void Server::start() {
             throw "Error on accept";
 
         //send to the clients their number to start
-        n = write(clientSocket1, "1", sizeof("1"));
+        int n = write(clientSocket1, "1", 1);
         if (n == -1) {
             cout << "Error writing to socket1" << endl;
             return;
         }
 
-        n = write(clientSocket2, "2", sizeof("2"));
+        n = write(clientSocket2, "2", 1);
         if (n == -1) {
             cout << "Error writing to socket1" << endl;
             return;
@@ -86,7 +86,7 @@ void Server::start() {
 }
 
 void Server::handleClient(int clientSocket1, int clientSocket2) {
-    char move[6];
+    char move[8];
 
     while (true) {
         // Read new move argument from client 1
@@ -138,8 +138,9 @@ void Server::handleClient(int clientSocket1, int clientSocket2) {
         cout << "close server" << endl;
         //TODO
     }
-
 }
+
+
 void Server::stop() {
-    close(serverSocket);
+    close(getServerSocket());
 }

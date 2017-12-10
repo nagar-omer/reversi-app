@@ -11,6 +11,7 @@ class Server {
         Server(int port);
         void start();
         void stop();
+        int getServerSocket(){return serverSocket;}
     private:
         int port;
         int serverSocket; // the socket's file descriptor

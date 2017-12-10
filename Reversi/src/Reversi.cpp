@@ -13,8 +13,14 @@
  * Output: play move for requested player                                    *
  ****************************************************************************/
 bool Reversi::play(ReversiPlayer *player, int lastMove[2]){
-    player->playReversiMove(lastMove, board);
-    // no legal move
+    // try request move from player
+    try {
+        player->playReversiMove(lastMove, board);
+    }
+    catch (const char *msg){
+        throw msg;
+    }
+        // no legal move
     if (lastMove[0] == -1)
         return false;
     // Play the requested move
@@ -46,9 +52,16 @@ void Reversi::startGame(){
         // black player turn
         cout << board;
         blackCanPlay = true;
-        blackCanPlay = play(black, lastMove);
-        white->sendLastMove(lastMove);
-
+        // try playing move - quit game if not successful
+        try {
+            blackCanPlay = play(black, lastMove);
+            white->sendLastMove(lastMove);
+        }
+        catch(const char *msg){
+            cout << endl << " GAME CRASHED" << endl;
+            cout << endl << msg << endl << endl;
+            return;
+        }
         // if both cant play in a single round then GAME-OVER
         if(!blackCanPlay && !whiteCanPlay) {
             gameOver = true;
@@ -56,9 +69,17 @@ void Reversi::startGame(){
         }
 
         cout << board;
+        // try playing move - quit game if not successful
+        try{
         whiteCanPlay = true;
         whiteCanPlay = play(white, lastMove);
         black->sendLastMove(lastMove);
+        }
+        catch(const char *msg){
+            cout << endl << " GAME CRASHED" << endl;
+            cout << endl << msg << endl << endl;
+            return;
+        }
 
         // if both cant play in a single round then GAME-OVER
         if(!blackCanPlay && !whiteCanPlay) {
@@ -66,9 +87,14 @@ void Reversi::startGame(){
             break;
         }
     }
-    // inform players that the game is over
-    black->gameOver();
-    white->gameOver();
+    try {
+        // inform players that the game is over
+        black->gameOver();
+        white->gameOver();
+    }
+    catch(const char *msg){
+        cout << endl << "Error closing connection";
+    }
     // GAME OVER !!
     cout << endl << endl;
     cout << "------------------------------------------------------------------";
@@ -93,6 +119,11 @@ void Reversi::startGame(){
     cout << "The winner is:" << endl << *winner->getPlayer() << endl;
 };
 
+
+/*****************************************************************************
+ * Function name: connectServer                                              *
+ * operation: the function establishes a connection with the game's server   *
+ ****************************************************************************/
 void Reversi::connectServer() {
     // getting information about server's address from the server_address.txt file
     ifstream addressFile;
@@ -132,6 +163,12 @@ void Reversi::connectServer() {
     cout << "connected to server" << endl;
 }
 
+
+/*****************************************************************************
+ * Function name: initPlayer                                                 *
+ * operation: the function initiate a reversiPlayer object acording to       *
+ * player type                                                               *
+ ****************************************************************************/
 void Reversi::initPlayer(int playerNum, Player *player, bool color) {
     int type = player->getPlayerType();
     switch (type){
@@ -163,6 +200,9 @@ void Reversi::initPlayer(int playerNum, Player *player, bool color) {
     int d = 4;
 }
 
+/*****************************************************************************
+ * Function name: default constructor - initiate connection players and board*
+ ****************************************************************************/
 Reversi::Reversi(Player *firstPlayer, Player *seconedPlayer, int rowSize, int colSize): board(rowSize, colSize){
     bool secondLocalPlayerColor = Board::WHITE;
     // only the first player can be online_player/PC
@@ -173,7 +213,12 @@ Reversi::Reversi(Player *firstPlayer, Player *seconedPlayer, int rowSize, int co
     if (firstPlayer->getPlayerType() == Player::ONLINE_PLAYER) {
         // connect to server to get messages from the online player
         cout << "connecting to server ..." << endl;
-        connectServer();
+        try {
+            connectServer();
+        }
+        catch(const char *msg){
+            throw msg;
+        }
         cout << "connected!" << endl;
         cout << "waiting for other player to join..." << endl;
         // get player color
@@ -185,8 +230,13 @@ Reversi::Reversi(Player *firstPlayer, Player *seconedPlayer, int rowSize, int co
         else
             secondLocalPlayerColor = Board::WHITE;
     }
-    // init first player
-    initPlayer(1, firstPlayer, !secondLocalPlayerColor);
-    // init second player
-    initPlayer(2, seconedPlayer, secondLocalPlayerColor);
+    try {
+        // init first player
+        initPlayer(1, firstPlayer, !secondLocalPlayerColor);
+        // init second player
+        initPlayer(2, seconedPlayer, secondLocalPlayerColor);
+    }
+    catch(const char *msg){
+        throw msg;
+    }
 };

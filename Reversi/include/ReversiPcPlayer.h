@@ -21,6 +21,11 @@ public:
      ****************************************************************************/
     virtual void playReversiMove(int *result, Board &board);
 
+    /*****************************************************************************
+     * Function name: default destructor                                         *
+     ****************************************************************************/
+    virtual ~ReversiPcPlayer() {};
+
 };
 
 #endif //REVERSI_PC_PLAYER_H

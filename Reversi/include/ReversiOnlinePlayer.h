@@ -24,11 +24,29 @@ class ReversiOnlinePlayer: public ReversiPlayer{
     int server;
 public:
     ReversiOnlinePlayer(Player *player, bool color, int serverSocket);
+    /*****************************************************************************
+     * Function name: playReversiMove                                            *
+     * Input: opponent last move and current game board                          *
+     * Output: the players move according to answer from server                  *
+     ****************************************************************************/
     virtual void playReversiMove(int *lastMove, Board &board);
 
+    /*****************************************************************************
+     * Function name: GameOver                                                   *
+     * Operation: inform server that the game was over and terinate connection   *
+     ****************************************************************************/
     virtual void gameOver();
 
+    /*****************************************************************************
+     * Function name: sendLastMove                                               *
+     * Operation: send to the server the opponents last move                     *
+     ****************************************************************************/
     virtual void sendLastMove(int *move);
+
+    /*****************************************************************************
+     * Function name: default destructor                                         *
+     ****************************************************************************/
+    virtual ~ReversiOnlinePlayer() {};
 };
 
 #endif //REVERSI_ONLINE_PLAYER_H
