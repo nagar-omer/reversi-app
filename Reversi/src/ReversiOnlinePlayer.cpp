@@ -20,9 +20,9 @@ ReversiOnlinePlayer::ReversiOnlinePlayer(Player *player, bool color, int serverS
  * Output: the players move according to answer from server                  *
  ****************************************************************************/
 void ReversiOnlinePlayer::playReversiMove(int *lastMove, Board *board) {
-    char move_c[8];
     // wait for online player to make a move.....
     cout << endl << "waiting for online player to make a move..." << endl;
+    char move_c[8];
     // wait for online player to make a move.....
     if (read(server, move_c, 8) == -1)
         throw "Connection lost - reading from server";
@@ -35,7 +35,7 @@ void ReversiOnlinePlayer::playReversiMove(int *lastMove, Board *board) {
     in >> lastMove[0] >> lastMove[1];
     if (lastMove[0] == -1)
         cout << "opponent cant play.." << endl << endl;
-    cout << "other player move: " << "(" << lastMove[0] << "," << lastMove[1] << ")" << endl;
+    cout << "other player move: " << "(" << lastMove[0] << "," << lastMove[1] << ")" << endl << endl;
 }
 
 

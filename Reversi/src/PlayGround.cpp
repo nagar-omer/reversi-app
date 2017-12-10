@@ -1,9 +1,8 @@
 /*****************************************************************************
  * Student Name:    Oved Nagar                                               *
  * Id:              302824875                                                *
- * Student Name:    Orly Paknahad                                            *
- * Id:              315444646                                                *
- * Exercise name:   Ex3                                                      *
+ * Exercise name:   Ex1                                                      *
+ * File description: This file contains the Board Class header               *
  ****************************************************************************/
 
 #include "../include/PlayGround.h"
@@ -102,10 +101,6 @@ void PlayGround::startReversiGame() {
  * Operation: asks from user to choose a game and stars the game             *
  ****************************************************************************/
 void PlayGround::startGame(){
-    if ( players.size() < 3){
-        cout << "create a player before starting a game .. " << endl << endl;
-        return;
-    }
     int id;
     cout << "Pick a game:" << endl;
     cout << "\t0.\t Back" << endl;

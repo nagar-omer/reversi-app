@@ -1,9 +1,8 @@
 /*****************************************************************************
  * Student Name:    Oved Nagar                                               *
  * Id:              302824875                                                *
- * Student Name:    Orly Paknahad                                            *
- * Id:              315444646                                                *
- * Exercise name:   Ex3                                                      *
+ * Exercise name:   Ex1                                                      *
+ * File description: This file contains the Board Class header               *
  ****************************************************************************/
 
 #include "../include/Player.h"

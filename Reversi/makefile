@@ -10,10 +10,10 @@ PlayGround.o: include/PlayGround.h include/Player.h include/Reversi.h src/PlayGr
 Reversi.o: include/ReversiPlayer.h include/Board.h include/Game.h include/Reversi.h include/ReversiLocalPlayer.h include/ReversiPcPlayer.h include/ReversiOnlinePlayer.h src/Reversi.cpp
 	g++ -c src/Reversi.cpp
 
-ReversiOnlinePlayer.o: include/Player.h include/ReversiPlayer.h include/ReversiLocalPlayer.h src/ReversiLocalPlayer.cpp
+ReversiLocalPlayer.o: include/Player.h include/ReversiPlayer.h include/ReversiLocalPlayer.h src/ReversiLocalPlayer.cpp
 	g++ -c src/ReversiLocalPlayer.cpp
 
-ReversiLocalPlayer.o: include/Player.h include/ReversiPlayer.h include/ReversiOnlinePlayer.h src/ReversiOnlinePlayer.cpp
+ReversiOnlinePlayer.o: include/Player.h include/ReversiPlayer.h include/ReversiOnlinePlayer.h src/ReversiOnlinePlayer.cpp
 	g++ -c src/ReversiOnlinePlayer.cpp
 
 ReversiPcPlayer.o: include/Player.h include/ReversiPlayer.h include/ReversiPcPlayer.h src/ReversiPcPlayer.cpp

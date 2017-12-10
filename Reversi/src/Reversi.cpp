@@ -1,9 +1,8 @@
 /*****************************************************************************
  * Student Name:    Oved Nagar                                               *
  * Id:              302824875                                                *
- * Student Name:    Orly Paknahad                                            *
- * Id:              315444646                                                *
- * Exercise name:   Ex3                                                      *
+ * Exercise name:   Ex1                                                      *
+ * File description: This file contains the Board Class header               *
  ****************************************************************************/
 
 #include "../include/Reversi.h"
@@ -128,7 +127,7 @@ void Reversi::startGame(){
 void Reversi::connectServer() {
     // getting information about server's address from the server_address.txt file
     ifstream addressFile;
-    addressFile.open("../server_info/server_address.txt");
+    addressFile.open("server_info/server_address.txt");
     string key, stringServerIP;
     int serverPort;
     addressFile >> key >> stringServerIP;

@@ -1,5 +1,3 @@
-#Name: orly paknahad
-#ID: 315444646
 
 a.out: Server.o main.o
 	g++ Server.o main.o

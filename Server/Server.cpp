@@ -56,13 +56,13 @@ void Server::start() {
             throw "Error on accept";
 
         //read the board size from client 1
-        int n = read(clientSocket1, boardSize, sizeof(boardSize));
+        int n = read(clientSocket1, boardSize, 8);
         if (n == -1) {
             cout << "Error reading boardSize" << endl;
             return;
         }
 
-        n = write(clientSocket1, boardSize, sizeof(boardSize));
+        n = write(clientSocket1, boardSize, 8);
         if (n == -1) {
             cout << "Error writing to socket1" << endl;
             return;
@@ -76,7 +76,7 @@ void Server::start() {
             throw "Error on accept";
 
         //read the board size from client 2
-        n = read(clientSocket2, boardSize2, sizeof(boardSize2));
+        n = read(clientSocket2, boardSize2, 8);
         if (n == -1) {
             cout << "Error reading boardSize2" << endl;
             return;
@@ -84,7 +84,7 @@ void Server::start() {
 
         if( atoi(boardSize) != atoi(boardSize2) ){
             //send to client 2 the correct board size
-            n = write(clientSocket2, boardSize, sizeof(boardSize));
+            n = write(clientSocket2, boardSize, 8);
             if (n == -1) {
                 cout << "Error writing to socket1" << endl;
                 return;
@@ -93,7 +93,7 @@ void Server::start() {
 
         else{
             //send to client 2 the correct board size
-            n = write(clientSocket2, boardSize2, sizeof(boardSize2));
+            n = write(clientSocket2, boardSize2, 8);
             if (n == -1) {
                 cout << "Error writing to socket1" << endl;
                 return;
