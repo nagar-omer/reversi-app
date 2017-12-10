@@ -1,6 +1,10 @@
-//
-// Created by orly on 11/28/17.
-//
+/*****************************************************************************
+ * Student Name:    Oved Nagar                                               *
+ * Id:              302824875                                                *
+ * Student Name:    Orly Paknahad                                            *
+ * Id:              315444646                                                *
+ * Exercise name:   Ex3                                                      *
+ ****************************************************************************/
 
 #ifndef SERVER_SERVER_H
 #define SERVER_SERVER_H

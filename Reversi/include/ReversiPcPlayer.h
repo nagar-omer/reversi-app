@@ -19,7 +19,7 @@ public:
      * Input: array for returning result, string for possible options            *
      * Output: computer picking according to possibilities                       *
      ****************************************************************************/
-    virtual void playReversiMove(int *result, Board &board);
+    virtual void playReversiMove(int *result, Board *board);
 
     /*****************************************************************************
      * Function name: default destructor                                         *

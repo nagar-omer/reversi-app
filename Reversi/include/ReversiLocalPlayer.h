@@ -1,8 +1,9 @@
 /*****************************************************************************
  * Student Name:    Oved Nagar                                               *
  * Id:              302824875                                                *
- * Exercise name:   Ex1                                                      *
- * File description: This file contains the Board Class header               *
+ * Student Name:    Orly Paknahad                                            *
+ * Id:              315444646                                                *
+ * Exercise name:   Ex3                                                      *
  ****************************************************************************/
 
 #ifndef REVERSI_LOCAL_PLAYER_H
@@ -18,7 +19,7 @@ public:
      * Input: array for returning result, string for possible options            *
      * Output: user picking according to user input                              *
      ****************************************************************************/
-    virtual void playReversiMove(int *result, Board &board);
+    virtual void playReversiMove(int *result, Board *board);
 
     /*****************************************************************************
      * Function name: default destructor                                         *

@@ -79,7 +79,7 @@ public:
      * Input: array to return result, string representing the move options       *
      * Output: initialize player reference and save the color                    *
      ****************************************************************************/
-    virtual void playReversiMove(int result[2], Board &board) = 0;
+    virtual void playReversiMove(int result[2], Board *board) = 0;
     virtual void gameOver() {};
     virtual void sendLastMove(int move[2]) {};
     virtual ~ReversiPlayer() {};

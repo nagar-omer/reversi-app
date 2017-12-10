@@ -1,8 +1,9 @@
 /*****************************************************************************
  * Student Name:    Oved Nagar                                               *
  * Id:              302824875                                                *
- * Exercise name:   Ex1                                                      *
- * File description: This file contains the Board Class header               *
+ * Student Name:    Orly Paknahad                                            *
+ * Id:              315444646                                                *
+ * Exercise name:   Ex3                                                      *
  ****************************************************************************/
 #include "../include/ReversiLocalPlayer.h"
 
@@ -12,11 +13,11 @@
  * Input: array for returning result, string for possible options            *
  * Output: user picking according to user input                              *
  ****************************************************************************/
-void ReversiLocalPlayer::playReversiMove(int *result, Board &board) {
+void ReversiLocalPlayer::playReversiMove(int *result, Board *board) {
     result[0] = -1;
     result[1] = -1;
 
-    string options = board.possibleMoves(color);
+    string options = board->possibleMoves(color);
 
     if (options.empty()) {
         cout << "No possible moves: Play passes to the other player. Press any key to continue..." << endl;

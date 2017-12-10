@@ -39,14 +39,14 @@ TEST(ReversiPlayer, play){
     ReversiPlayer *reversiPcB = new ReversiPcPlayer(&pc, Board::BLACK);
     int move[2];
 
-    Board board = Board();
+    Board *board = new Board();
 
     // playing some moves
-    board.playColor(3, 4, Board::BLACK);
-    board.playColor(3, 3, Board::WHITE);
-    board.playColor(6, 5, Board::BLACK);
-    board.playColor(3, 5, Board::WHITE);
-    board.playColor(2, 3, Board::BLACK);
+    board->playColor(3, 4, Board::BLACK);
+    board->playColor(3, 3, Board::WHITE);
+    board->playColor(6, 5, Board::BLACK);
+    board->playColor(3, 5, Board::WHITE);
+    board->playColor(2, 3, Board::BLACK);
 
     // getting best option to play from pc - should be (7,5)
     reversiPcW->playReversiMove(move, board);
@@ -54,11 +54,12 @@ TEST(ReversiPlayer, play){
     EXPECT_EQ(move[1], 5);
 
     // continue playing...
-    board.playColor(2, 4, Board::WHITE);
+    board->playColor(2, 4, Board::WHITE);
     reversiPcB->playReversiMove(move, board);
     EXPECT_EQ(move[0], 1);
     EXPECT_EQ(move[1], 4);
 
     delete(reversiPcW);
     delete(reversiPcB);
+    delete(board);
 }

@@ -17,6 +17,7 @@
 #include <netdb.h>
 #include <arpa/inet.h>
 #include <fstream>
+#include <stdlib.h>
 #include "Game.h"
 #include "ReversiPlayer.h"
 #include "Board.h"
@@ -29,7 +30,7 @@
  ****************************************************************************/
 class Reversi: public Game {
     ReversiPlayer *player1, *player2;
-    Board board;
+    Board *board;
     int clientSocket;
 
     /*****************************************************************************
@@ -54,7 +55,7 @@ class Reversi: public Game {
 
 public:
     // funcs for testing
-    Board &getBoard() { return board; };
+    Board *getBoard() { return board; };
     ReversiPlayer *getPlayer1() { return player1; };
     ReversiPlayer *getPlayer2() { return player2; };
     // end of funcs for testing
@@ -70,6 +71,7 @@ public:
     ~Reversi(){
         delete(player1);
         delete(player2);
+        delete(board);
     }
     /*****************************************************************************
      * Function name: startGame                                                  *

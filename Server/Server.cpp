@@ -1,6 +1,10 @@
-//
-// Created by orly on 11/28/17.
-//
+/*****************************************************************************
+ * Student Name:    Oved Nagar                                               *
+ * Id:              302824875                                                *
+ * Student Name:    Orly Paknahad                                            *
+ * Id:              315444646                                                *
+ * Exercise name:   Ex3                                                      *
+ ****************************************************************************/
 
 #include "Server.h"
 #include <sys/socket.h>
@@ -41,6 +45,7 @@ void Server::start() {
     socklen_t clientAddressLen1;
     struct sockaddr_in clientAddress2;
     socklen_t clientAddressLen2;
+    char boardSize[8],boardSize2[8] ;
 
     while (true) {
         cout << "Waiting for client1 connections..." << endl;
@@ -50,23 +55,54 @@ void Server::start() {
         if (clientSocket1 == -1)
             throw "Error on accept";
 
-        //send to client 1 - "wait for" msg:
-        //int n = write(clientSocket1, "wait for client 2 to connect", sizeof("wait for client 2 to connect"));
-        //if (n == -1) {
-        //    cout << "Error writing to socket1" << endl;
-        //    return;
-        //}
+        //read the board size from client 1
+        int n = read(clientSocket1, boardSize, sizeof(boardSize);
+        if (n == -1) {
+            cout << "Error reading boardSize" << endl;
+            return;
+        }
+
+        n = write(clientSocket1, boardSize, sizeof(boardSize));
+        if (n == -1) {
+            cout << "Error writing to socket1" << endl;
+            return;
+        }
 
         cout << "Waiting for client2 connections..." << endl;
-        //stop();
         // Accept a new client 2 connection
         int clientSocket2 = accept(serverSocket, (struct sockaddr *) &clientAddress2, &clientAddressLen2);
         cout << "Client 2 connected" << endl;
         if (clientSocket2 == -1)
             throw "Error on accept";
 
+        //read the board size from client 2
+        n = read(clientSocket2, boardSize2, sizeof(boardSize2));
+        if (n == -1) {
+            cout << "Error reading boardSize2" << endl;
+            return;
+        }
+
+        if( atoi(boardSize) != atoi(boardSize2) ){
+            //send to client 2 the correct board size
+            n = write(clientSocket2, boardSize, sizeof(boardSize));
+            if (n == -1) {
+                cout << "Error writing to socket1" << endl;
+                return;
+            }
+        }
+
+        else{
+            //send to client 2 the correct board size
+            n = write(clientSocket2, boardSize2, sizeof(boardSize2));
+            if (n == -1) {
+                cout << "Error writing to socket1" << endl;
+                return;
+            }
+        }
+
+        //the board size are the same
         //send to the clients their number to start
-        int n = write(clientSocket1, "1", 1);
+        n = write(clientSocket1, "1", 1);
         if (n == -1) {
             cout << "Error writing to socket1" << endl;
             return;
@@ -135,8 +171,6 @@ void Server::handleClient(int clientSocket1, int clientSocket2) {
             //the first client tha see that the board is full, send a msg "End" to sever
             //and the server sent it to the other client
         }
-        cout << "close server" << endl;
-        //TODO
     }
 }
 

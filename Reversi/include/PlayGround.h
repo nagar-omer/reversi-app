@@ -13,7 +13,8 @@
 #include "../include/Reversi.h"
 
 class PlayGround {
-    enum menue {NEW_PLAYER = 1, NEW_GAME = 2, EXIT = 3};
+
+    enum menue {BACK, NEW_PLAYER, NEW_GAME, EXIT};
     enum games {REVERSI = 1};
     vector<Player *> players;
 

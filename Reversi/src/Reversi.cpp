@@ -1,8 +1,9 @@
 /*****************************************************************************
  * Student Name:    Oved Nagar                                               *
  * Id:              302824875                                                *
- * Exercise name:   Ex1                                                      *
- * File description: This file contains the Board Class header               *
+ * Student Name:    Orly Paknahad                                            *
+ * Id:              315444646                                                *
+ * Exercise name:   Ex3                                                      *
  ****************************************************************************/
 
 #include "../include/Reversi.h"
@@ -24,7 +25,7 @@ bool Reversi::play(ReversiPlayer *player, int lastMove[2]){
     if (lastMove[0] == -1)
         return false;
     // Play the requested move
-    board.playColor(lastMove[0],lastMove[1],player->getColor());
+    board->playColor(lastMove[0],lastMove[1],player->getColor());
     return true;
 }
 
@@ -50,7 +51,7 @@ void Reversi::startGame(){
     while(!gameOver){
 
         // black player turn
-        cout << board;
+        cout << endl << *board << endl;
         blackCanPlay = true;
         // try playing move - quit game if not successful
         try {
@@ -68,7 +69,7 @@ void Reversi::startGame(){
             break;
         }
 
-        cout << board;
+        cout << endl << *board << endl;
         // try playing move - quit game if not successful
         try{
         whiteCanPlay = true;
@@ -101,7 +102,7 @@ void Reversi::startGame(){
     cout << endl << endl;
     // check which player is the winner and print results
     ReversiPlayer *winner, *loser;
-    int score1 = board.score(Board::WHITE), score2 = board.score(Board::BLACK);
+    int score1 = board->score(Board::WHITE), score2 = board->score(Board::BLACK);
     if (score1 > score2) {
         winner = white;
         loser = black;
@@ -197,14 +198,15 @@ void Reversi::initPlayer(int playerNum, Player *player, bool color) {
                 player2 = new ReversiLocalPlayer(player, color);
 
     }
-    int d = 4;
 }
+
 
 /*****************************************************************************
  * Function name: default constructor - initiate connection players and board*
  ****************************************************************************/
-Reversi::Reversi(Player *firstPlayer, Player *seconedPlayer, int rowSize, int colSize): board(rowSize, colSize){
+Reversi::Reversi(Player *firstPlayer, Player *seconedPlayer, int rowSize, int colSize){
     bool secondLocalPlayerColor = Board::WHITE;
+    int finalSize = rowSize;
     // only the first player can be online_player/PC
     if (seconedPlayer->getPlayerType() == Player::ONLINE_PLAYER || seconedPlayer->getPlayerType() == Player::PC)
         throw "Error - Player 2 cant be online player";
@@ -220,6 +222,17 @@ Reversi::Reversi(Player *firstPlayer, Player *seconedPlayer, int rowSize, int co
             throw msg;
         }
         cout << "connected!" << endl;
+
+        stringstream temp;
+        char finalSize_c[8];
+        temp << rowSize;
+        // request for board game size
+        if ( write(clientSocket, temp.str().c_str(), 8) == -1 )
+            throw "Error - cant send board size to server";
+        if ( read(clientSocket, finalSize_c, 8) == -1 )
+            throw "Error - cant read board size from server";
+        finalSize = atoi(finalSize_c);
+
         cout << "waiting for other player to join..." << endl;
         // get player color
         char color_c;
@@ -229,12 +242,16 @@ Reversi::Reversi(Player *firstPlayer, Player *seconedPlayer, int rowSize, int co
             secondLocalPlayerColor = Board::BLACK;
         else
             secondLocalPlayerColor = Board::WHITE;
+
+
     }
     try {
         // init first player
         initPlayer(1, firstPlayer, !secondLocalPlayerColor);
         // init second player
         initPlayer(2, seconedPlayer, secondLocalPlayerColor);
+        // create board with available size
+        board = new Board(finalSize, finalSize);
     }
     catch(const char *msg){
         throw msg;

@@ -1,8 +1,9 @@
 /*****************************************************************************
  * Student Name:    Oved Nagar                                               *
  * Id:              302824875                                                *
- * Exercise name:   Ex1                                                      *
- * File description: This file contains the Board Class header               *
+ * Student Name:    Orly Paknahad                                            *
+ * Id:              315444646                                                *
+ * Exercise name:   Ex3                                                      *
  ****************************************************************************/
 
 #include "../include/PlayGround.h"
@@ -12,7 +13,36 @@
  * Operation: creates reversi object and starts the game                     *
  ****************************************************************************/
 void PlayGround::startReversiGame() {
+    // Board size
+    cout << "choose preferred board size" << endl;
+    cout << "\t0.\t Back to main menu" << endl;
+    cout << "\t1.\t 6X6 " << endl;
+    cout << "\t2.\t 8X8 " << endl;
+    cout << "\t3.\t 10X10 " << endl;
+    cout << "\tdefault.\t 8X8 " << endl;
+    int size;
+    cin >> size;
+    switch (size) {
+        case BACK:
+            return;
+        case 1: {
+            size = 6;
+            break;
+        }
+        case 2: {
+            size = 8;
+            break;
+        }
+        case 3: {
+            size = 10;
+            break;
+        }
+        default:
+            size = 8;
+    }
+
     cout << "choose game type:" << endl;
+    cout << "\t0.\t Back to main menu" << endl;
     cout << "\t1.\t play against PC" << endl;
     cout << "\t2.\t 2 player online game" << endl;
     cout << "\t3.\t 2 player local game" << endl;
@@ -23,6 +53,8 @@ void PlayGround::startReversiGame() {
     Player *player1 = NULL;
     // initiate first player acording to game type
     switch (gameType) {
+        case BACK:
+            return;
         case Player::LOCAL_PLAYER:
             // Enter first player by id
             cout << "enter player ID for first player" << endl;
@@ -55,31 +87,6 @@ void PlayGround::startReversiGame() {
         cin >> id2;
     }
 
-    // Board size
-    cout << "Board size" << endl;
-    cout << "\t1.\t 6X6 " << endl;
-    cout << "\t2.\t 8X8 " << endl;
-    cout << "\t3.\t 10X10 " << endl;
-    cout << "\tdefault.\t 8X8 " << endl;
-    int size;
-    cin >> size;
-    switch (size) {
-        case 1: {
-            size = 6;
-            break;
-        }
-        case 2: {
-            size = 8;
-            break;
-        }
-        case 3: {
-            size = 10;
-            break;
-        }
-        default:
-            size = 8;
-    }
-
     try {
         Reversi reversi(player1, player2, size, size);
         reversi.startGame();
@@ -89,16 +96,24 @@ void PlayGround::startReversiGame() {
         cout << endl << msg << endl << endl;
     }
 }
+
 /*****************************************************************************
  * Function name: startGame                                                  *
  * Operation: asks from user to choose a game and stars the game             *
  ****************************************************************************/
 void PlayGround::startGame(){
+    if ( players.size() < 3){
+        cout << "create a player before starting a game .. " << endl << endl;
+        return;
+    }
     int id;
     cout << "Pick a game:" << endl;
+    cout << "\t0.\t Back" << endl;
     cout << "\t1.\t Reversi" << endl;
     cin >> id;
     switch (id) {
+        case BACK:
+            return;
         case REVERSI: {
             startReversiGame();
             break;
@@ -130,7 +145,7 @@ void PlayGround::addPlayer() {
 void PlayGround::go(){
     bool exitMenue = false;
     while(!exitMenue) {
-        cout << "Main Menue" << endl;
+        cout << "Main Menu" << endl;
         cout << "\t1.\t Enter new player" << endl;
         cout << "\t2.\t Start new Game" << endl;
         cout << "\tother.\t Exit" << endl;

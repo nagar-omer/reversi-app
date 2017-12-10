@@ -13,11 +13,11 @@
  * Input: array for returning result, string for possible options            *
  * Output: computer picking according to possibilities                       *
  ****************************************************************************/
-void ReversiPcPlayer::playReversiMove(int *result, Board &board) {
+void ReversiPcPlayer::playReversiMove(int *result, Board *board) {
     result[0] = -1;
     result[1] = -1;
 
-    string options = board.possibleMoves(color);
+    string options = board->possibleMoves(color);
     if (options.empty()) {
         cout << "Computer cant move" << endl;
         return;
@@ -28,10 +28,10 @@ void ReversiPcPlayer::playReversiMove(int *result, Board &board) {
     // first option is arbitrarily chosen to be the best
     // next the program will loop over the other option and will update the best if needed
     vector<ReversiPlayer::Point *>::const_iterator bestMove = vecOptions->begin();
-    int opponentScoreForBestMove = board.OpponentScoreForMove((*bestMove)->getX(),(*bestMove)->getY(),color);
+    int opponentScoreForBestMove = board->OpponentScoreForMove((*bestMove)->getX(),(*bestMove)->getY(),color);
 
     for(vector<ReversiPlayer::Point *>::const_iterator it = vecOptions->begin(); it != vecOptions->end(); ++it) {
-        int temp = board.OpponentScoreForMove((*it)->getX(),(*it)->getY(),color);
+        int temp = board->OpponentScoreForMove((*it)->getX(),(*it)->getY(),color);
         if(temp < opponentScoreForBestMove){
             bestMove = it;
             opponentScoreForBestMove = temp;

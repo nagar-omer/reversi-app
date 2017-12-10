@@ -29,7 +29,7 @@ public:
      * Input: opponent last move and current game board                          *
      * Output: the players move according to answer from server                  *
      ****************************************************************************/
-    virtual void playReversiMove(int *lastMove, Board &board);
+    virtual void playReversiMove(int *lastMove, Board *board);
 
     /*****************************************************************************
      * Function name: GameOver                                                   *
