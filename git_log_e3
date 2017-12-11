@@ -1,0 +1,175 @@
+commit b1b22aa349d7fde1c2abda67f0512fffee797e6b (HEAD -> master, origin/master, origin/HEAD)
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Mon Dec 11 12:18:34 2017 +0200
+
+    enter player cout change - final version for ex4
+
+commit 3b3ef1bd023de99954c0ff3f4fdd243877d26c85
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Mon Dec 11 11:59:52 2017 +0200
+
+    debug
+
+commit 9deaaeb4368be344a82ab2ae2a2c1c09683c211f
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Mon Dec 11 09:18:32 2017 +0200
+
+    more debug
+
+commit b9377eec8d2583efb0aac7de61f3312e7f598a9e
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Mon Dec 11 08:26:18 2017 +0200
+
+:
+[1]+  Stopped                 git log
+oved@oved-VirtualBox:~/CLionProjects/advanced_1/Reversi_ap1$ git log
+commit b1b22aa349d7fde1c2abda67f0512fffee797e6b (HEAD -> master, origin/master, origin/HEAD)
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Mon Dec 11 12:18:34 2017 +0200
+
+    enter player cout change - final version for ex4
+
+commit 3b3ef1bd023de99954c0ff3f4fdd243877d26c85
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Mon Dec 11 11:59:52 2017 +0200
+
+    debug
+
+commit 9deaaeb4368be344a82ab2ae2a2c1c09683c211f
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Mon Dec 11 09:18:32 2017 +0200
+
+    more debug
+
+commit b9377eec8d2583efb0aac7de61f3312e7f598a9e
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Mon Dec 11 08:26:18 2017 +0200
+
+    debug - error fix on client side | add names
+
+commit 451cf5c3d4c63fae5c77494c4f6619d65ccfb545
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Mon Dec 11 00:37:46 2017 +0200
+
+    add include to server
+
+commit cc44fb58f36035376406c2a5252887e4dd41b632
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Mon Dec 11 00:06:49 2017 +0200
+
+    fixing..
+
+commit 6390dd29bee453ec82169d5ffa1ff6fb37942963
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Sun Dec 10 23:36:43 2017 +0200
+
+    fix
+
+commit 61734884ea0623d62058a1c6f56977ee801f9c3d
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Sun Dec 10 23:32:32 2017 +0200
+
+    all working
+
+commit 22ca22d4e5407a1fdb3bd67def76189380689847
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Sun Dec 10 08:47:47 2017 +0200
+
+    server + client
+
+commit 096066c630c442399400d71a7d2f46be1e1c0f62
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Thu Dec 7 22:29:37 2017 +0200
+
+    make file
+
+commit 22d0a888032a512b8d2933adf4a5877f444a3729
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Thu Dec 7 22:17:58 2017 +0200
+
+    little fix
+
+commit e44bea929da4be23bda2352911a539848b3f35dc
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Thu Dec 7 22:08:41 2017 +0200
+
+    finish online (:
+
+commit 7935cec6d508a521aa2101aa6a28b1558fd38cf7
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Thu Dec 7 21:46:14 2017 +0200
+
+    finish online mode - little debug
+
+commit cbf041b8c40db9ff8a7d93ffb68e92adfc62de41
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Thu Dec 7 03:41:17 2017 +0200
+
+    changed structure + add online mode on client side - need to debug
+
+commit 27bb712ed174ff2beaee320772506be03a935696
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Mon Dec 4 10:04:11 2017 +0200
+
+    update
+
+commit e4b04c524b181a4c1bdb61a522d815bf73167fda
+Author: Orly <orlyorly44@gmail.com>
+Date:   Tue Nov 28 06:27:33 2017 -0800
+
+    server upload
+
+commit cc1666972e51060f52e5bd61f1f6264889877be6
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Tue Nov 28 16:06:08 2017 +0200
+
+    refresh
+
+commit ddb7d4d6bd09c807d6e1a2ce8c8a0e690c9d2c42
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Mon Nov 27 23:37:54 2017 +0200
+
+    Reversi - test complete
+
+commit 68150634e0aa920a6f9c554b92538f7a40ff8554
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Mon Nov 27 14:16:03 2017 +0200
+
+    Player - complete testing
+
+commit cbd5d9762cd704e07aa41f2fb0d5ed6500c440df
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Mon Nov 27 13:56:43 2017 +0200
+
+    ReversiPlayer - complete testing
+
+commit bf05bd8db6ee7f3109a516143653b66c3b18bd55
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Mon Nov 27 11:30:44 2017 +0200
+
+    update board testing
+
+commit ec1af702751810dd006d50994f658f39a0e11f49
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Mon Nov 27 09:32:11 2017 +0200
+
+    update board testing
+
+commit eac8a4130b604c8f07438cb9f945c417b00fbad6
+Author: Oved Nagar <ovednagar@gmail.com>
+Date:   Sun Nov 26 22:09:42 2017 +0200
+
+    project files
+
+commit 68df3dcf98dc11ddfbd20b535c8fe440a5fdbf41
+Author: ovednagar <33989713+ovednagar@users.noreply.github.com>
+Date:   Sun Nov 26 22:07:52 2017 +0200
+
+    Delete .gitignore
+
+commit 70b629bb182d015481ce91cca720977a5a818152
+Author: ovednagar <33989713+ovednagar@users.noreply.github.com>
+Date:   Sun Nov 26 22:01:51 2017 +0200
+
+    Initial commit
+

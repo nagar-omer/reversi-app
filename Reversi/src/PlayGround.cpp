@@ -109,9 +109,10 @@ void PlayGround::startReversiGame() {
  * Operation: asks from user to choose a game and stars the game             *
  ****************************************************************************/
 void PlayGround::startGame(){
-    if ( players.size() < 3){
+    if ( players.size() < 3) {
         cout << "create a player before starting a game .. " << endl << endl;
         return;
+    }
     int id;
     cout << "Pick a game:" << endl;
     cout << "\t0.\t Back" << endl;
