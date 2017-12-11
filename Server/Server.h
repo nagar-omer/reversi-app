@@ -9,7 +9,10 @@
 #ifndef SERVER_SERVER_H
 #define SERVER_SERVER_H
 
-
+/*****************************************************************************
+ * Class name: Server
+ * Function: connect between two clients
+ ****************************************************************************/
 class Server {
     public:
         Server(int port);

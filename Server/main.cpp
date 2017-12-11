@@ -9,8 +9,11 @@
 #include <fstream>
 #include "Server.h"
 #include <iostream>
-#include <stdlib.h>
-#include <string>
+
+/*****************************************************************************
+ * Function name: main
+ * Operation: get the pert from txt file, creat a server with the port.
+ ****************************************************************************/
 
 using namespace std;
 int main() {

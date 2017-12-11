@@ -17,10 +17,18 @@
 using namespace std;
 #define MAX_CONNECTED_CLIENTS 2
 
+/*****************************************************************************
+ * Function name: Server
+ * Operation: Constructor
+ ****************************************************************************/
 Server::Server(int port): port(port), serverSocket(0) {
     cout << "Server is connect" << endl;
 }
 
+/*****************************************************************************
+ * Function name: start
+ * Operation: connect the server to two clients to play together
+ ****************************************************************************/
 void Server::start() {
     // Create a socket point
     serverSocket = socket(AF_INET, SOCK_STREAM, 0);
@@ -43,9 +51,9 @@ void Server::start() {
 
     // Define the clients socket's structures
     struct sockaddr_in clientAddress1;
-    socklen_t clientAddressLen1;
+    socklen_t clientAddressLen1=0;
     struct sockaddr_in clientAddress2;
-    socklen_t clientAddressLen2;
+    socklen_t clientAddressLen2=0;
     char boardSize[8],boardSize2[8] ;
 
     while (true) {
@@ -122,6 +130,11 @@ void Server::start() {
     }
 }
 
+/*****************************************************************************
+ * Function name: handleClient
+ * Params: the two clients sockets
+ * Operation: get the moves from player1 and send it to the other
+ ****************************************************************************/
 void Server::handleClient(int clientSocket1, int clientSocket2) {
     char move[8];
 
