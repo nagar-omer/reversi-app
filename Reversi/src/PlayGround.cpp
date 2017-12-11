@@ -56,6 +56,10 @@ void PlayGround::startReversiGame() {
         case BACK:
             return;
         case Player::LOCAL_PLAYER:
+            if ( players.size() < 4){
+                cout << "create 2 players before starting local 2 players game .. " << endl << endl;
+                return;
+            }
             // Enter first player by id
             cout << "enter player ID for first player" << endl;
             cin >> id1;
@@ -64,21 +68,24 @@ void PlayGround::startReversiGame() {
                 cout << "ID not exist - try again" << endl;
                 cin >> id1;
             }
+            cout << "enter player ID for second player" << endl;
             break;
         case Player::PC:
             player1 = getPlayerByID(Player::PC);
+            cout << "enter player ID" << endl;
             break;
         case Player::ONLINE_PLAYER:
             player1 = getPlayerByID(Player::ONLINE_PLAYER);
+            cout << "enter player ID" << endl;
             break;
         default:
             player1 = getPlayerByID(Player::PC);
+            cout << "enter player ID" << endl;
             break;
     }
 
 
     // Enter second player by id
-    cout << "enter player ID for second player" << endl;
     cin >> id2;
     Player *player2 = NULL;
     // id 1/2 reserved for pc and online players
@@ -102,6 +109,9 @@ void PlayGround::startReversiGame() {
  * Operation: asks from user to choose a game and stars the game             *
  ****************************************************************************/
 void PlayGround::startGame(){
+    if ( players.size() < 3){
+        cout << "create a player before starting a game .. " << endl << endl;
+        return;
     int id;
     cout << "Pick a game:" << endl;
     cout << "\t0.\t Back" << endl;
