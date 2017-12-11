@@ -1,8 +1,9 @@
 /*****************************************************************************
  * Student Name:    Oved Nagar                                               *
  * Id:              302824875                                                *
- * Exercise name:   Ex1                                                      *
- * File description: This file contains the Board Class header               *
+ * Student Name:    Orly Paknahad                                            *
+ * Id:              315444646                                                *
+ * Exercise name:   Ex3                                                      *
  ****************************************************************************/
 
 #include "../include/Reversi.h"
@@ -141,6 +142,7 @@ void Reversi::connectServer() {
 
     // convert ip string from string to binary form
     struct in_addr server_address;
+    bzero((char *)&server_address, sizeof(in_addr));
     if (!inet_aton(serverIP, &server_address))
         throw "Error - cant convert IP address";
 
@@ -152,8 +154,8 @@ void Reversi::connectServer() {
     // initiate serverAddress sockaddr_in
     struct sockaddr_in serverAddress;
     bzero((char *)&serverAddress, sizeof(serverAddress));
-    memcpy((char *)&serverAddress.sin_addr.s_addr, (char *)server->h_addr, server->h_length);
-    serverAddress.sin_port = htons(serverPort);
+    memcpy((char *)&serverAddress.sin_addr.s_addr, (char *)server->h_addr, (size_t)server->h_length);
+    serverAddress.sin_port = htons((uint16_t)serverPort);
     serverAddress.sin_family = AF_INET;
 
     // try connecting to server
@@ -224,10 +226,13 @@ Reversi::Reversi(Player *firstPlayer, Player *seconedPlayer, int rowSize, int co
 
         stringstream temp;
         char finalSize_c[8];
+        bzero(finalSize_c, 8);
         temp << rowSize;
         // request for board game size
-        if ( write(clientSocket, temp.str().c_str(), 8) == -1 )
+        strcpy(finalSize_c, temp.str().c_str());
+        if ( write(clientSocket, finalSize_c, 8) == -1 )
             throw "Error - cant send board size to server";
+        bzero(finalSize_c, 8);
         if ( read(clientSocket, finalSize_c, 8) == -1 )
             throw "Error - cant read board size from server";
         finalSize = atoi(finalSize_c);
@@ -235,7 +240,7 @@ Reversi::Reversi(Player *firstPlayer, Player *seconedPlayer, int rowSize, int co
         cout << "waiting for other player to join..." << endl;
         // get player color
         char color_c;
-        read(clientSocket, &color_c, 1);
+        read(clientSocket, &color_c, 2);
         cout << "second player connected!"<< endl;
         if (color_c == '1')
             secondLocalPlayerColor = Board::BLACK;

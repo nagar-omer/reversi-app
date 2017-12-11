@@ -31,7 +31,7 @@
 class Reversi: public Game {
     ReversiPlayer *player1, *player2;
     Board *board;
-    int clientSocket;
+    int clientSocket = -1;
 
     /*****************************************************************************
      * Function name: play                                                       *

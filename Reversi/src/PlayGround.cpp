@@ -1,8 +1,9 @@
 /*****************************************************************************
  * Student Name:    Oved Nagar                                               *
  * Id:              302824875                                                *
- * Exercise name:   Ex1                                                      *
- * File description: This file contains the Board Class header               *
+ * Student Name:    Orly Paknahad                                            *
+ * Id:              315444646                                                *
+ * Exercise name:   Ex3                                                      *
  ****************************************************************************/
 
 #include "../include/PlayGround.h"
@@ -47,7 +48,7 @@ void PlayGround::startReversiGame() {
     cout << "\t3.\t 2 player local game" << endl;
     cout << "\tdefault.\t play against PC" << endl;
 
-    int gameType, id1, id2;
+    int gameType, id1 = 0, id2;
     cin >> gameType;
     Player *player1 = NULL;
     // initiate first player acording to game type

@@ -103,13 +103,13 @@ void Server::start() {
 
         //the board size are the same
         //send to the clients their number to start
-        n = write(clientSocket1, "1", 1);
+        n = write(clientSocket1, "1", 2);
         if (n == -1) {
             cout << "Error writing to socket1" << endl;
             return;
         }
 
-        n = write(clientSocket2, "2", 1);
+        n = write(clientSocket2, "2", 2);
         if (n == -1) {
             cout << "Error writing to socket1" << endl;
             return;

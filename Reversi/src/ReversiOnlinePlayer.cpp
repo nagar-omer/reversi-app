@@ -57,6 +57,9 @@ void ReversiOnlinePlayer::sendLastMove(int *move) {
     ostringstream out;
     out << move[0] << "," << move[1];
     // send the last move to the server
-    if (write(server, out.str().c_str(), 8) == -1)
+    char toSend[8];
+    bzero(toSend, 8);
+    strcpy(toSend, out.str().c_str());
+    if (write(server, toSend, 8) == -1)
         throw "Connection lost - writing to server";
 };
