@@ -57,11 +57,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_Player.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test_Player.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/test_Player.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
               <caret line="17" column="41" lean-forward="false" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Reversi.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/Reversi.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="33" column="20" lean-forward="false" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayGround.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/Desktop/reversi versions/Reversi_1.4/src/PlayGround.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1483">
+              <caret line="14" column="37" lean-forward="true" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -84,26 +104,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="522">
               <caret line="29" column="55" lean-forward="false" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayGround.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PlayGround.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="78" lean-forward="false" selection-start-line="6" selection-start-column="78" selection-end-line="6" selection-end-column="78" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Player.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="78" lean-forward="false" selection-start-line="6" selection-start-column="78" selection-end-line="6" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -169,7 +169,6 @@
         <option value="$PROJECT_DIR$/tests/test_Reversi.cpp" />
         <option value="$PROJECT_DIR$/include/PlayGround.h" />
         <option value="$USER_HOME$/Desktop/reversi versions/server reversi_0 .2/Server.cpp" />
-        <option value="$PROJECT_DIR$/include/Reversi.h" />
         <option value="$PROJECT_DIR$/src/ReversiOnlinePlayer.cpp" />
         <option value="$PROJECT_DIR$/include/ReversiLocalPlayer.h" />
         <option value="$PROJECT_DIR$/src/Board.cpp" />
@@ -179,6 +178,8 @@
         <option value="$PROJECT_DIR$/src/Reversi.cpp" />
         <option value="$PROJECT_DIR$/src/ReversiLocalPlayer.cpp" />
         <option value="$PROJECT_DIR$/src/ReversiPlayer.cpp" />
+        <option value="$PROJECT_DIR$/include/Reversi.h" />
+        <option value="$USER_HOME$/Desktop/reversi versions/Server_1.4/Server.cpp" />
       </list>
     </option>
   </component>
@@ -188,7 +189,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="238" />
     <option name="y" value="167" />
     <option name="width" value="1650" />
@@ -320,16 +321,15 @@
       <workItem from="1512843705340" duration="4122000" />
       <workItem from="1512859040853" duration="15273000" />
       <workItem from="1512944102133" duration="899000" />
-      <workItem from="1512970551216" duration="2090000" />
+      <workItem from="1512970551216" duration="3040000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75013000" />
+    <option name="totallyTimeSpent" value="75963000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="238" y="167" width="1853" height="1055" extended-state="7" />
-    <editor active="true" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1575823" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -397,21 +397,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/include/Reversi.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlayGround.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -644,14 +629,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/Reversi.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="33" column="25" lean-forward="false" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/ReversiLocalPlayer.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -782,6 +759,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="17" column="41" lean-forward="false" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/reversi versions/Server_1.4/Server.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="48" column="36" lean-forward="true" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Reversi.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="33" column="20" lean-forward="false" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/reversi versions/Reversi_1.4/src/PlayGround.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1483">
+          <caret line="14" column="37" lean-forward="true" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
           <folding />
         </state>
       </provider>
