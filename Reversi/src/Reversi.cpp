@@ -34,6 +34,7 @@ bool Reversi::play(ReversiPlayer *player, int lastMove[2]){
  * Input: override method for Game "Interface" - starting game               *
  ****************************************************************************/
 void Reversi::startGame(){
+
     ReversiPlayer *black, *white;
     // get black and white players
     if (player1->getColor()) {
@@ -205,59 +206,157 @@ void Reversi::initPlayer(int playerNum, Player *player, bool color) {
 /*****************************************************************************
  * Function name: default constructor - initiate connection players and board*
  ****************************************************************************/
-Reversi::Reversi(Player *firstPlayer, Player *seconedPlayer, int rowSize, int colSize){
-    bool secondLocalPlayerColor = Board::WHITE;
-    int finalSize = rowSize;
-    // only the first player can be online_player/PC
-    if (seconedPlayer->getPlayerType() == Player::ONLINE_PLAYER || seconedPlayer->getPlayerType() == Player::PC)
-        throw "Error - Player 2 cant be online player";
+Reversi::Reversi(const vector<Player *> *players) {
+    allPlayers = players;
 
-    // if online game connect to server and get colors for the players
-    if (firstPlayer->getPlayerType() == Player::ONLINE_PLAYER) {
-        // connect to server to get messages from the online player
-        cout << "connecting to server ..." << endl;
-        try {
-            connectServer();
-        }
-        catch(const char *msg){
-            throw msg;
-        }
-        cout << "connected!" << endl;
+}
 
-        stringstream temp;
-        char finalSize_c[8];
-        bzero(finalSize_c, 8);
-        temp << rowSize;
-        // request for board game size
-        strcpy(finalSize_c, temp.str().c_str());
-        if ( write(clientSocket, finalSize_c, 8) == -1 )
-            throw "Error - cant send board size to server";
-        bzero(finalSize_c, 8);
-        if ( read(clientSocket, finalSize_c, 8) == -1 )
-            throw "Error - cant read board size from server";
-        finalSize = atoi(finalSize_c);
+void Reversi::setOnline() {
 
-        cout << "waiting for other player to join..." << endl;
-        // get player color
-        char color_c;
-        read(clientSocket, &color_c, 2);
-        cout << "second player connected!"<< endl;
-        if (color_c == '1')
-            secondLocalPlayerColor = Board::BLACK;
-        else
-            secondLocalPlayerColor = Board::WHITE;
-
-
+    cout << "enter player ID" << endl;
+    int id2;
+    cin >> id2;
+    Player *tempPlayer = NULL;
+    // id 1/2 reserved for pc and online players
+    while (id2 == Player::PC || id2 == Player::ONLINE_PLAYER || (tempPlayer = getPlayerByID(id2)) == NULL) {
+        cout << "ID not exist / same as first player - try again" << endl;
+        cin >> id2;
     }
+
+    // connect to server to get messages from the online player
+    cout << "connecting to server ..." << endl;
     try {
-        // init first player
-        initPlayer(1, firstPlayer, !secondLocalPlayerColor);
-        // init second player
-        initPlayer(2, seconedPlayer, secondLocalPlayerColor);
+        connectServer();
+    }
+    catch (const char *msg) {
+        throw msg;
+    }
+    cout << "connected!" << endl;
+
+    // TODO get info from server AND INITIATE BOARD
+    // TODO SET WHO IS 1 AND EHO IS 2
+    initPlayer(2, tempPlayer, Board::WHITE);
+    initPlayer(1, getPlayerByID(Player::ONLINE_PLAYER), Board::BLACK);
+
+    /*
+    stringstream temp;
+    char finalSize_c[8];
+    bzero(finalSize_c, 8);
+    temp << rowSize;
+    // request for board game size
+    strcpy(finalSize_c, temp.str().c_str());
+    if (write(clientSocket, finalSize_c, 8) == -1)
+        throw "Error - cant send board size to server";
+    bzero(finalSize_c, 8);
+    if (read(clientSocket, finalSize_c, 8) == -1)
+        throw "Error - cant read board size from server";
+    finalSize = atoi(finalSize_c);
+
+    cout << "waiting for other player to join..." << endl;
+    // get player color
+    char color_c;
+    read(clientSocket, &color_c, 2);
+    cout << "second player connected!" << endl;
+    if (color_c == '1')
+        secondLocalPlayerColor = Board::BLACK;
+    else
+        secondLocalPlayerColor = Board::WHITE;
+       */
+
+}
+
+bool Reversi::getSettingsFromUser(){
+
+    cout << "choose game type:" << endl;
+    cout << "\t0.\t Back to main menu" << endl;
+    cout << "\t1.\t play against PC" << endl;
+    cout << "\t2.\t 2 player online game" << endl;
+    cout << "\t3.\t 2 player local game" << endl;
+    cout << "\tdefault.\t play against PC" << endl;
+
+    int gameType, id1 = 0, id2;
+    cin >> gameType;
+    // initiate first player according to game type
+    switch (gameType) {
+        case 0: // BACK TO MAIN MENU
+            return false;
+        case Player::LOCAL_PLAYER:
+            if ( allPlayers->size() < 4){
+                cout << "create 2 players before starting local 2 players game .. " << endl << endl;
+                return false;
+            }
+            // Enter first player by id
+            cout << "enter player ID for first player" << endl;
+            cin >> id1;
+            Player * tempPlayer = NULL;
+            // id 1/2 reserved for pc and online players
+            while (id1 == Player::PC || id1 == Player::ONLINE_PLAYER || (tempPlayer = getPlayerByID(id1)) == NULL) {
+                cout << "ID not exist - try again" << endl;
+                cin >> id1;
+            }
+            initPlayer(1, tempPlayer, Board::BLACK);
+            cout << "enter player ID for second player" << endl;
+            break;
+        case Player::PC:
+            initPlayer(1, getPlayerByID(Player::PC), Board::BLACK);
+            cout << "enter player ID" << endl;
+            break;
+        case Player::ONLINE_PLAYER:
+            setOnline();
+            break;
+        default:
+            cout << "wrong input" << endl;
+            return false;
+    }
+
+
+    // Enter second player by id
+    cin >> id2;
+    Player *tempPlayer = NULL;
+    // id 1/2 reserved for pc and online players
+    while (id2 == Player::PC || id2 == Player::ONLINE_PLAYER || id1 == id2 || (tempPlayer = getPlayerByID(id2)) == NULL) {
+        cout << "ID not exist / same as first player - try again" << endl;
+        cin >> id2;
+    }
+    initPlayer(2, tempPlayer, Board::WHITE);
+
+
+    // Board size
+    cout << "choose preferred board size" << endl;
+    cout << "\t0.\t Back to main menu" << endl;
+    cout << "\t1.\t 6X6 " << endl;
+    cout << "\t2.\t 8X8 " << endl;
+    cout << "\t3.\t 10X10 " << endl;
+    cout << "\tdefault.\t 8X8 " << endl;
+    int size;
+    cin >> size;
+    switch (size) {
+        case 0: // BACK TO MAIN MENU
+            return false;
+        case 1: {
+            rows = cols = 6;
+            break;
+        }
+        case 2: {
+            rows = cols = 8;
+            break;
+        }
+        case 3: {
+            rows = cols = 10;
+            break;
+        }
+        default:
+            cout << "wrong input!";
+            return false;
+    }
+
+    try{
         // create board with available size
-        board = new Board(finalSize, finalSize);
+        board = new Board(rows, cols);
     }
     catch(const char *msg){
         throw msg;
     }
-};
+
+    return true;
+}

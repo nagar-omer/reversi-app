@@ -31,8 +31,20 @@
 class Reversi: public Game {
     ReversiPlayer *player1, *player2;
     Board *board;
+    int rows, cols;
+    const vector<Player *> *allPlayers;
     int clientSocket;
 
+    /*****************************************************************************
+     * Function name: getPlayerByID                                              *
+     * Output: returns ptr for player by his ID                                  *
+     ****************************************************************************/
+    Player *getPlayerByID(int id){
+        for(vector<Player *>::const_iterator it = allPlayers->begin(); it != allPlayers->end(); ++it)
+            if(id == (*it)->getSerial())
+                return (*it);
+        return NULL;
+    }
     /*****************************************************************************
      * Function name: play                                                       *
      * Input: RevesiPlayer - player (not Player)                                 *
@@ -53,6 +65,7 @@ class Reversi: public Game {
      ****************************************************************************/
     void connectServer();
 
+    void setOnline();
 public:
     // funcs for testing
     Board *getBoard() { return board; };
@@ -63,7 +76,7 @@ public:
     /*****************************************************************************
      * Function name: default constructor - initiate players and board           *
      ****************************************************************************/
-    Reversi(Player *firstPlayer, Player *seconedPlayer, int rowSize = 8, int colSize = 8);
+    Reversi(const vector<Player *> *players);
 
     /*****************************************************************************
      * Function name: default destructor - delete players                        *
@@ -78,6 +91,7 @@ public:
      * Input: override method for Game "Interface" - starting game               *
      ****************************************************************************/
     virtual void startGame();
+    bool getSettingsFromUser();
 };
 
 
