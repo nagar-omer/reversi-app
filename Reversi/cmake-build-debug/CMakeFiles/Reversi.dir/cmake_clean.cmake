@@ -9,7 +9,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/Reversi.dir/tests/test_Board.cpp.o"
   "CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o"
   "CMakeFiles/Reversi.dir/tests/test_Player.cpp.o"
-  "CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o"
   "CMakeFiles/Reversi.dir/src/ReversiOnlinePlayer.cpp.o"
   "CMakeFiles/Reversi.dir/src/ReversiPcPlayer.cpp.o"
   "CMakeFiles/Reversi.dir/src/ReversiLocalPlayer.cpp.o"

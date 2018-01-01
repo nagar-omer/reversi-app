@@ -9,7 +9,6 @@
 #ifndef OTHELLO_PLAYGROUND_H
 #define OTHELLO_PLAYGROUND_H
 
-#include "../include/Player.h"
 #include "../include/Reversi.h"
 
 class PlayGround {
@@ -17,6 +16,7 @@ class PlayGround {
     enum menue {BACK, NEW_PLAYER, NEW_GAME, EXIT};
     enum games {REVERSI = 1};
     vector<Player *> players;
+    Reversi *reversi;
 
     /*****************************************************************************
      * Function name: addPlayer                                                  *
@@ -52,6 +52,7 @@ public:
         players.push_back(new Player("PC", Player::PC));
         // serial number 2
         players.push_back(new Player("ONLINE", Player::ONLINE_PLAYER));
+        reversi = new Reversi(&players);
     };
 
     /*****************************************************************************

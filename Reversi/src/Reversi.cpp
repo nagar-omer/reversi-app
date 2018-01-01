@@ -21,6 +21,12 @@ bool Reversi::play(ReversiPlayer *player, int lastMove[2]){
     catch (const char *msg){
         throw msg;
     }
+    // sign for End Game
+    if (lastMove[0] == -2) {
+        closeConnection(player);
+        playerEndedGame = true;
+        return false;
+    }
         // no legal move
     if (lastMove[0] == -1)
         return false;
@@ -30,10 +36,33 @@ bool Reversi::play(ReversiPlayer *player, int lastMove[2]){
 }
 
 /*****************************************************************************
+ * Function name: closeConnection                                            *
+ * Operation: inform server that the game was over and terinate connection   *
+ ****************************************************************************/
+void Reversi::closeConnection(const ReversiPlayer *closingPlayer) const {
+    if( closingPlayer->getPlayer()->getSerial() == Player::LOCAL_PLAYER) {
+        ostringstream temp;
+        temp << "close " << gameName;
+        char temp_c[50];
+        strcpy(temp_c, temp.str().c_str());
+        write(clientSocket, temp_c, 50);
+        close(clientSocket);
+    }
+    else{
+        char temp[50] = "END";
+        write(clientSocket, temp, 50);
+        close(clientSocket);
+    }
+}
+
+/*****************************************************************************
  * Function name: startGame                                                  *
  * Input: override method for Game "Interface" - starting game               *
  ****************************************************************************/
 void Reversi::startGame(){
+    reset();
+    if (!getSettingsFromUser())
+        return;
 
     ReversiPlayer *black, *white;
     // get black and white players
@@ -57,6 +86,18 @@ void Reversi::startGame(){
         // try playing move - quit game if not successful
         try {
             blackCanPlay = play(black, lastMove);
+        }
+        catch(const char *msg){
+            cout << endl << " GAME CRASHED" << endl;
+            cout << endl << msg << endl << endl;
+            return;
+        }
+        // if both cant play in a single round then GAME-OVER
+        if (playerEndedGame || (!blackCanPlay && !whiteCanPlay)) {
+            gameOver = true;
+            break;
+        }
+        try {
             white->sendLastMove(lastMove);
         }
         catch(const char *msg){
@@ -64,40 +105,55 @@ void Reversi::startGame(){
             cout << endl << msg << endl << endl;
             return;
         }
-        // if both cant play in a single round then GAME-OVER
-        if(!blackCanPlay && !whiteCanPlay) {
-            gameOver = true;
-            break;
-        }
+
 
         cout << endl << *board << endl;
         // try playing move - quit game if not successful
         try{
-        whiteCanPlay = true;
-        whiteCanPlay = play(white, lastMove);
-        black->sendLastMove(lastMove);
+            whiteCanPlay = true;
+            whiteCanPlay = play(white, lastMove);
         }
         catch(const char *msg){
             cout << endl << " GAME CRASHED" << endl;
             cout << endl << msg << endl << endl;
             return;
         }
-
         // if both cant play in a single round then GAME-OVER
-        if(!blackCanPlay && !whiteCanPlay) {
+        if(playerEndedGame || (!blackCanPlay && !whiteCanPlay)) {
             gameOver = true;
             break;
         }
+        try {
+            black->sendLastMove(lastMove);
+        }
+        catch(const char *msg){
+            cout << endl << " GAME CRASHED" << endl;
+            cout << endl << msg << endl << endl;
+            return;
+        }
     }
+    if (playerEndedGame){
+        cout << "game stopped!" << endl;
+        return;
+    }
+
+    // GAME OVER !!
     try {
-        // inform players that the game is over
-        black->gameOver();
-        white->gameOver();
+        if(player2->getColor() == Board::BLACK)
+            // close with close gameName
+            closeConnection(player2);
+        else {
+            char buff[50];
+            // expected to get END from server
+            read(clientSocket, buff, 50);
+            // close with END
+            closeConnection(player1);
+        }
     }
     catch(const char *msg){
         cout << endl << "Error closing connection";
     }
-    // GAME OVER !!
+
     cout << endl << endl;
     cout << "------------------------------------------------------------------";
     cout << endl << endl;
@@ -127,9 +183,12 @@ void Reversi::startGame(){
  * operation: the function establishes a connection with the game's server   *
  ****************************************************************************/
 void Reversi::connectServer() {
+    if (connected)
+        return;
+    cout << "connecting to server ..." << endl;
     // getting information about server's address from the server_address.txt file
     ifstream addressFile;
-    addressFile.open("server_info/server_address.txt");
+    addressFile.open("../server_info/server_address.txt");
     string key, stringServerIP;
     int serverPort;
     addressFile >> key >> stringServerIP;
@@ -162,7 +221,7 @@ void Reversi::connectServer() {
     // try connecting to server
     if (connect(clientSocket, (struct sockaddr *)&serverAddress, sizeof(serverAddress)) == -1)
         throw "Error - cant connect to server";
-
+    connected = true;
     cout << "connected to server" << endl;
 }
 
@@ -208,118 +267,249 @@ void Reversi::initPlayer(int playerNum, Player *player, bool color) {
  ****************************************************************************/
 Reversi::Reversi(const vector<Player *> *players) {
     allPlayers = players;
+    player1 = player2 = NULL;
+    board = NULL;
+    rows = cols = clientSocket = 0;
+    playerEndedGame = connected = false;
+}
+
+/*****************************************************************************
+ * Function name: startNewOnlineGame                                         *
+ * Operation: initiate players board and server connection for online mode   *
+ * for starting a new game                                                   *
+ ****************************************************************************/
+bool Reversi::startNewOnlineGame(){
+    board = new Board(8, 8);
+    // initiate player according to colors
+    initPlayer(1, getPlayerByID(Player::ONLINE_PLAYER), Board::WHITE);
+    initLocalPlayer(2, Board::BLACK);
+
+    string gameName;
+    char buff[50] = "start ";
+    // get name for new game from user
+    cout << "enter name for new game" << endl;
+    cin >> gameName;
+    strcpy(&buff[6], gameName.c_str());
+    // ask from server to open new game with requested name
+    if (write(clientSocket, buff, 50) == -1) {
+        cout << "Error - writing to server on start new game" << endl;
+        return false;
+    }
+    cout << "waiting fo server to start game..." << endl;
+    // get answer from user - is name already taken?
+    if (read(clientSocket, buff, 50) == -1) {
+        cout << "Error - cant read on start new game" << endl;
+        return false;
+    }
+    int flag = atoi(buff);
+    if (flag == -1) {
+        cout << "game already exists" << endl;
+        return false;
+    }
+    // getting local player's color from server
+    cout << "new game with the name: " << gameName << " has created" << endl;
+    this->gameName = gameName;
+    return true;
+}
+
+/*****************************************************************************
+ * Function name: playReversiMove                                            *
+ * Input: opponent last move and current game board                          *
+ * Output: the players move according to answer from server                  *
+ ****************************************************************************/
+void Reversi::printExistingGames(){
+    char buff[50];
+    strcpy(buff, "list_games");
+    // ask for game list from server
+    if (write(clientSocket, buff, 50) == -1) {
+        cout << "Error - cant ask games from server" << endl;
+    }
+    bzero(buff, 50);
+    // wait for answer and print it
+    if (read(clientSocket, buff, 50) == -1) {
+        cout << "Error - cant get games from server" << endl;
+    }
+    string games(buff);
+    cout << "available games:"<< endl << games << endl;
+    // disconnect server
+    close(clientSocket);
+    connected = false;
+}
+
+/*****************************************************************************
+ * Function name: joinGame                                                   *
+ * Operation: initiate players board and server connection for online mode   *
+ * for joining existing game                                                 *
+ ****************************************************************************/
+bool Reversi::joinGame(){
+    // initiate player according to colors
+    board = new Board(8, 8);
+    initPlayer(1, getPlayerByID(Player::ONLINE_PLAYER), Board::BLACK);
+    initLocalPlayer(2, Board::WHITE);
+
+    string gameName;
+    char buff[50] = "join ";
+    // get name for new game from user
+    cout << "enter the name of the game you want to join to." << endl;
+    cin >> gameName;
+    strcpy(&buff[5], gameName.c_str());
+    // ask from server to open new game with requested name
+    if (write(clientSocket, buff, 50) == -1) {
+        cout << "Error - writing to server on start new game" << endl;
+        return false;
+    }
+    // get answer from user - is name already taken?
+    if (read(clientSocket, buff, 50) == -1) {
+        cout << "Error - cant read on join game" << endl;
+        return false;
+    }
+    int flag = atoi(buff);
+    if (flag == -1) {
+        cout << "game doesn't exist" << endl;
+        return false;
+    }
+    this->gameName = gameName;
+    cout << "successfully joined game!" << endl;
+    return true;
+
 
 }
 
-void Reversi::setOnline() {
-
-    cout << "enter player ID" << endl;
-    int id2;
-    cin >> id2;
-    Player *tempPlayer = NULL;
-    // id 1/2 reserved for pc and online players
-    while (id2 == Player::PC || id2 == Player::ONLINE_PLAYER || (tempPlayer = getPlayerByID(id2)) == NULL) {
-        cout << "ID not exist / same as first player - try again" << endl;
-        cin >> id2;
-    }
+/*****************************************************************************
+ * Function name: setOnline                                                  *
+ * Output: navigation for online mode                                        *
+ ****************************************************************************/
+bool Reversi::setOnline() {
 
     // connect to server to get messages from the online player
-    cout << "connecting to server ..." << endl;
     try {
         connectServer();
     }
     catch (const char *msg) {
         throw msg;
     }
-    cout << "connected!" << endl;
+    cout << endl;
 
-    // TODO get info from server AND INITIATE BOARD
-    // TODO SET WHO IS 1 AND EHO IS 2
-    initPlayer(2, tempPlayer, Board::WHITE);
-    initPlayer(1, getPlayerByID(Player::ONLINE_PLAYER), Board::BLACK);
+    // print menu for online mode
+    cout << "choose option:" << endl;
+    cout << "\t0.\t back to main menu" << endl;
+    cout << "\t1.\t open new game" << endl;
+    cout << "\t2.\t print existing games" << endl;
+    cout << "\t3.\t join existing game" << endl;
 
-    /*
-    stringstream temp;
-    char finalSize_c[8];
-    bzero(finalSize_c, 8);
-    temp << rowSize;
-    // request for board game size
-    strcpy(finalSize_c, temp.str().c_str());
-    if (write(clientSocket, finalSize_c, 8) == -1)
-        throw "Error - cant send board size to server";
-    bzero(finalSize_c, 8);
-    if (read(clientSocket, finalSize_c, 8) == -1)
-        throw "Error - cant read board size from server";
-    finalSize = atoi(finalSize_c);
+    int option;
+    cin >> option;
 
-    cout << "waiting for other player to join..." << endl;
-    // get player color
-    char color_c;
-    read(clientSocket, &color_c, 2);
-    cout << "second player connected!" << endl;
-    if (color_c == '1')
-        secondLocalPlayerColor = Board::BLACK;
-    else
-        secondLocalPlayerColor = Board::WHITE;
-       */
+    // switch according to users choice
+    switch (option){
 
+        case 0: // BACK
+            return false;
+        case 1:
+            return startNewOnlineGame();
+        case 2:
+            printExistingGames();
+            return false;
+        case 3:
+            return joinGame();
+        default:
+            cout << "wrong input" << endl;
+            return false;
+    }
 }
 
+/*****************************************************************************
+ * Function name: isNumber                                                   *
+ * Input: string                                                             *
+ * Output: true/false -> number/NAN                                          *
+ ****************************************************************************/
+bool Reversi::isNumber(string &s){
+    for (int i = 0; i < s.length(); i++)
+        if (!isdigit(s[i]))
+            return false;
+    return true;
+}
+
+/*****************************************************************************
+ * Function name: initLocalPlayer                                            *
+ * Input: playerNum = 1/2, color = BLACK/WHITE                               *
+ * Output: initiate first/second player as local player                      *
+ ****************************************************************************/
+bool Reversi::initLocalPlayer(int playerNum, bool color){
+    string input;
+    Player *tempPlayer;
+    if (playerNum == 2 && player1 == NULL) {
+        cout << "Error - init player 2 before player 1" << endl;
+        return false;
+    }
+    if (playerNum == 1) {
+        cout << "enter player ID for first player" << endl;
+        // Enter first player by id
+        cout << "enter player ID for first player" << endl;
+        cin >> input;
+        // id 1/2 reserved for pc and online players
+        while (!isNumber(input) || atoi(input.c_str()) == Player::PC || atoi(input.c_str()) == Player::ONLINE_PLAYER ||
+                (tempPlayer = getPlayerByID(atoi(input.c_str()))) == NULL) {
+            cout << "ID not exist - try again" << endl;
+            cin >> input;
+        }
+        initPlayer(1, tempPlayer, color);
+    }
+    else {
+        if (player1->getPlayer()->getSerial() == Player::LOCAL_PLAYER)
+            cout << "enter player ID for second player" << endl;
+        else
+            cout << "enter player ID for local player" << endl;
+        cin >> input;
+        // id 1/2 reserved for pc and online players
+        while (!isNumber(input) || atoi(input.c_str()) == Player::PC || atoi(input.c_str()) == Player::ONLINE_PLAYER ||
+               (tempPlayer = getPlayerByID(atoi(input.c_str()))) == NULL
+               || atoi(input.c_str()) == player1->getPlayer()->getSerial()) {
+            cout << "ID not exist - try again" << endl;
+            cin >> input;
+        }
+        initPlayer(2, tempPlayer, color);
+    }
+
+};
+
+/*****************************************************************************
+ * Function name: getSettingsFromUser                                        *
+ * Output: main menu for reversi game                                        *
+ ****************************************************************************/
 bool Reversi::getSettingsFromUser(){
 
     cout << "choose game type:" << endl;
     cout << "\t0.\t Back to main menu" << endl;
     cout << "\t1.\t play against PC" << endl;
-    cout << "\t2.\t 2 player online game" << endl;
+    cout << "\t2.\t online mode" << endl;
     cout << "\t3.\t 2 player local game" << endl;
-    cout << "\tdefault.\t play against PC" << endl;
 
     int gameType, id1 = 0, id2;
     cin >> gameType;
+    Player *tempPlayer = NULL;
     // initiate first player according to game type
     switch (gameType) {
         case 0: // BACK TO MAIN MENU
             return false;
+        case Player::PC:
+            initPlayer(1, getPlayerByID(Player::PC), Board::BLACK);
+            break;
+        case Player::ONLINE_PLAYER:
+            return setOnline();
         case Player::LOCAL_PLAYER:
             if ( allPlayers->size() < 4){
                 cout << "create 2 players before starting local 2 players game .. " << endl << endl;
                 return false;
             }
-            // Enter first player by id
-            cout << "enter player ID for first player" << endl;
-            cin >> id1;
-            Player * tempPlayer = NULL;
-            // id 1/2 reserved for pc and online players
-            while (id1 == Player::PC || id1 == Player::ONLINE_PLAYER || (tempPlayer = getPlayerByID(id1)) == NULL) {
-                cout << "ID not exist - try again" << endl;
-                cin >> id1;
-            }
-            initPlayer(1, tempPlayer, Board::BLACK);
-            cout << "enter player ID for second player" << endl;
-            break;
-        case Player::PC:
-            initPlayer(1, getPlayerByID(Player::PC), Board::BLACK);
-            cout << "enter player ID" << endl;
-            break;
-        case Player::ONLINE_PLAYER:
-            setOnline();
+            initLocalPlayer(1, Board::BLACK);
             break;
         default:
             cout << "wrong input" << endl;
             return false;
     }
 
-
-    // Enter second player by id
-    cin >> id2;
-    Player *tempPlayer = NULL;
-    // id 1/2 reserved for pc and online players
-    while (id2 == Player::PC || id2 == Player::ONLINE_PLAYER || id1 == id2 || (tempPlayer = getPlayerByID(id2)) == NULL) {
-        cout << "ID not exist / same as first player - try again" << endl;
-        cin >> id2;
-    }
-    initPlayer(2, tempPlayer, Board::WHITE);
-
+    initLocalPlayer(2, Board::WHITE);
 
     // Board size
     cout << "choose preferred board size" << endl;
@@ -359,4 +549,14 @@ bool Reversi::getSettingsFromUser(){
     }
 
     return true;
+}
+
+void Reversi::reset(){
+    delete(player1);
+    delete(player2);
+    delete(board);
+    player1 = player2 = NULL;
+    board = NULL;
+    rows = cols = 0;
+    playerEndedGame = false;
 }

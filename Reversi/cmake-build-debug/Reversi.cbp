@@ -414,9 +414,6 @@
 		<Unit filename="/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/test_Player.cpp">
 			<Option target="Reversi"/>
 		</Unit>
-		<Unit filename="/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/test_Reversi.cpp">
-			<Option target="Reversi"/>
-		</Unit>
 		<Unit filename="/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/test_ReversiPlayer.cpp">
 			<Option target="Reversi"/>
 		</Unit>

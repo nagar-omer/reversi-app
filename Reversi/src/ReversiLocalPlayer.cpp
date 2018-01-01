@@ -13,7 +13,7 @@
  * Input: array for returning result, string for possible options            *
  * Output: user picking according to user input                              *
  ****************************************************************************/
-void ReversiLocalPlayer::playReversiMove(int *result, Board *board) {
+void ReversiLocalPlayer::playReversiMove(int *result, Board *board) const {
     result[0] = -1;
     result[1] = -1;
 
@@ -25,9 +25,10 @@ void ReversiLocalPlayer::playReversiMove(int *result, Board *board) {
         return;
     }
 
+    cout << "** at any time enter END to stop the game **" <<  endl;
     cout << flag << ": It's your move." << endl;
     cout << "Your possible moves:\t" << options << endl;
-    cout << "Please Enter your Current move row,col:\t";
+    cout << "Please Enter your Current move row,col :\t";
 
     string input;
     bool legal = false;
@@ -36,6 +37,11 @@ void ReversiLocalPlayer::playReversiMove(int *result, Board *board) {
     while(!legal) {
         // get request for move from the user
         cin >> input;
+        // indicate that player wants to stop the game
+        if (input.compare("END") == 0){
+            result[0] = -2;
+            return;
+        }
         // check input format
         while(!checkMoveInput(input)){
             cout << endl << "incorrect input format. Enter two number separated by a comma, e.g: 2,2:\t";

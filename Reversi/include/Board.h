@@ -10,6 +10,8 @@
 
 #ifndef BOARD
 #define BOARD
+//#define PLAYER_ENDED_GAME (-2)
+//#define PLAYER_CANT_PLAY (-1)
 
 #include <sstream>
 #include <iostream>

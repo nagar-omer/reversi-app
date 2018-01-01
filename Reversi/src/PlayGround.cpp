@@ -15,8 +15,7 @@
 void PlayGround::startReversiGame() {
 
     try {
-        Reversi reversi(&players);
-        reversi.startGame();
+        reversi->startGame();
     }
     catch (const char *msg){
         cout << endl << "CANT START GAME !" << endl;
@@ -111,4 +110,5 @@ Player *PlayGround::getPlayerByID(int id){
 PlayGround::~PlayGround() {
     for(vector<Player *>::iterator it = players.begin(); it != players.end(); ++it )
         delete (*it);
+        delete(reversi);
 }

@@ -29,19 +29,13 @@ public:
      * Input: opponent last move and current game board                          *
      * Output: the players move according to answer from server                  *
      ****************************************************************************/
-    virtual void playReversiMove(int *lastMove, Board *board);
-
-    /*****************************************************************************
-     * Function name: GameOver                                                   *
-     * Operation: inform server that the game was over and terinate connection   *
-     ****************************************************************************/
-    virtual void gameOver();
+    virtual void playReversiMove(int *lastMove, Board *board) const;
 
     /*****************************************************************************
      * Function name: sendLastMove                                               *
      * Operation: send to the server the opponents last move                     *
      ****************************************************************************/
-    virtual void sendLastMove(int *move);
+    virtual void sendLastMove(int *move) const;
 
     /*****************************************************************************
      * Function name: default destructor                                         *

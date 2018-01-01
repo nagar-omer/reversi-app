@@ -19,7 +19,6 @@
 #include <fstream>
 #include <stdlib.h>
 #include "Game.h"
-#include "ReversiPlayer.h"
 #include "Board.h"
 #include "ReversiLocalPlayer.h"
 #include "ReversiPcPlayer.h"
@@ -34,6 +33,8 @@ class Reversi: public Game {
     int rows, cols;
     const vector<Player *> *allPlayers;
     int clientSocket;
+    bool playerEndedGame, connected;
+    string gameName;
 
     /*****************************************************************************
      * Function name: getPlayerByID                                              *
@@ -44,7 +45,8 @@ class Reversi: public Game {
             if(id == (*it)->getSerial())
                 return (*it);
         return NULL;
-    }
+    };
+
     /*****************************************************************************
      * Function name: play                                                       *
      * Input: RevesiPlayer - player (not Player)                                 *
@@ -60,12 +62,65 @@ class Reversi: public Game {
     void initPlayer(int playerNum, Player *player, bool color);
 
     /*****************************************************************************
+     * Function name: getSettingsFromUser                                        *
+     * Output: main menu for reversi game                                        *
+     ****************************************************************************/
+    bool getSettingsFromUser();
+
+    /*****************************************************************************
+     * Function name: startNewOnlineGame                                         *
+     * Operation: initiate players board and server connection for online mode   *
+     * for starting a new game                                                   *
+     ****************************************************************************/
+    bool startNewOnlineGame();
+
+    /*****************************************************************************
+     * Function name: playReversiMove                                            *
+     * Input: opponent last move and current game board                          *
+     * Output: the players move according to answer from server                  *
+     ****************************************************************************/
+    void printExistingGames();
+
+    /*****************************************************************************
+     * Function name: initLocalPlayer                                            *
+     * Input: playerNum = 1/2, color = BLACK/WHITE                               *
+     * Output: initiate first/second player as local player                      *
+     ****************************************************************************/
+    bool initLocalPlayer(int playerNum,  bool color);
+
+    /*****************************************************************************
+     * Function name: isNumber                                                   *
+     * Input: string                                                             *
+     * Output: true/false -> number/NAN                                          *
+     ****************************************************************************/
+    bool isNumber(string &s);
+
+    /*****************************************************************************
+     * Function name: joinGame                                                   *
+     * Operation: initiate players board and server connection for online mode   *
+     * for joining existing game                                                 *
+     ****************************************************************************/
+    bool joinGame();
+
+    /*****************************************************************************
+     * Function name: closeConnection                                            *
+     * Operation: inform server that the game was over and terinate connection   *
+     ****************************************************************************/
+    void closeConnection(const ReversiPlayer *closingPlayer) const;
+
+
+    /*****************************************************************************
      * Function name: connectServer                                              *
      * operation: the function establishes a connection with the game's server   *
      ****************************************************************************/
     void connectServer();
 
-    void setOnline();
+    /*****************************************************************************
+     * Function name: setOnline                                                  *
+     * Output: navigation for online mode                                        *
+     ****************************************************************************/
+    bool setOnline();
+    void reset();
 public:
     // funcs for testing
     Board *getBoard() { return board; };
@@ -91,7 +146,6 @@ public:
      * Input: override method for Game "Interface" - starting game               *
      ****************************************************************************/
     virtual void startGame();
-    bool getSettingsFromUser();
 };
 
 

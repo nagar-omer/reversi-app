@@ -297,33 +297,9 @@ CMakeFiles/Reversi.dir/tests/test_Player.cpp.o.provides: CMakeFiles/Reversi.dir/
 CMakeFiles/Reversi.dir/tests/test_Player.cpp.o.provides.build: CMakeFiles/Reversi.dir/tests/test_Player.cpp.o
 
 
-CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: CMakeFiles/Reversi.dir/flags.make
-CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o: ../tests/test_Reversi.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o -c /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/test_Reversi.cpp
-
-CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/test_Reversi.cpp > CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.i
-
-CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/test_Reversi.cpp -o CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.s
-
-CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o.requires:
-
-.PHONY : CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o.requires
-
-CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o.provides: CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o.provides.build
-.PHONY : CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o.provides
-
-CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o.provides.build: CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o
-
-
 CMakeFiles/Reversi.dir/src/ReversiOnlinePlayer.cpp.o: CMakeFiles/Reversi.dir/flags.make
 CMakeFiles/Reversi.dir/src/ReversiOnlinePlayer.cpp.o: ../src/ReversiOnlinePlayer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Reversi.dir/src/ReversiOnlinePlayer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Reversi.dir/src/ReversiOnlinePlayer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Reversi.dir/src/ReversiOnlinePlayer.cpp.o -c /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/src/ReversiOnlinePlayer.cpp
 
 CMakeFiles/Reversi.dir/src/ReversiOnlinePlayer.cpp.i: cmake_force
@@ -347,7 +323,7 @@ CMakeFiles/Reversi.dir/src/ReversiOnlinePlayer.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/Reversi.dir/src/ReversiPcPlayer.cpp.o: CMakeFiles/Reversi.dir/flags.make
 CMakeFiles/Reversi.dir/src/ReversiPcPlayer.cpp.o: ../src/ReversiPcPlayer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Reversi.dir/src/ReversiPcPlayer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Reversi.dir/src/ReversiPcPlayer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Reversi.dir/src/ReversiPcPlayer.cpp.o -c /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/src/ReversiPcPlayer.cpp
 
 CMakeFiles/Reversi.dir/src/ReversiPcPlayer.cpp.i: cmake_force
@@ -371,7 +347,7 @@ CMakeFiles/Reversi.dir/src/ReversiPcPlayer.cpp.o.provides.build: CMakeFiles/Reve
 
 CMakeFiles/Reversi.dir/src/ReversiLocalPlayer.cpp.o: CMakeFiles/Reversi.dir/flags.make
 CMakeFiles/Reversi.dir/src/ReversiLocalPlayer.cpp.o: ../src/ReversiLocalPlayer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Reversi.dir/src/ReversiLocalPlayer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Reversi.dir/src/ReversiLocalPlayer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Reversi.dir/src/ReversiLocalPlayer.cpp.o -c /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/src/ReversiLocalPlayer.cpp
 
 CMakeFiles/Reversi.dir/src/ReversiLocalPlayer.cpp.i: cmake_force
@@ -405,7 +381,6 @@ Reversi_OBJECTS = \
 "CMakeFiles/Reversi.dir/tests/test_Board.cpp.o" \
 "CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o" \
 "CMakeFiles/Reversi.dir/tests/test_Player.cpp.o" \
-"CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o" \
 "CMakeFiles/Reversi.dir/src/ReversiOnlinePlayer.cpp.o" \
 "CMakeFiles/Reversi.dir/src/ReversiPcPlayer.cpp.o" \
 "CMakeFiles/Reversi.dir/src/ReversiLocalPlayer.cpp.o"
@@ -423,7 +398,6 @@ Reversi: CMakeFiles/Reversi.dir/tests/gtest_main.cpp.o
 Reversi: CMakeFiles/Reversi.dir/tests/test_Board.cpp.o
 Reversi: CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o
 Reversi: CMakeFiles/Reversi.dir/tests/test_Player.cpp.o
-Reversi: CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o
 Reversi: CMakeFiles/Reversi.dir/src/ReversiOnlinePlayer.cpp.o
 Reversi: CMakeFiles/Reversi.dir/src/ReversiPcPlayer.cpp.o
 Reversi: CMakeFiles/Reversi.dir/src/ReversiLocalPlayer.cpp.o
@@ -432,7 +406,7 @@ Reversi: lib/googletest-master/googlemock/gtest/libgtestd.a
 Reversi: lib/googletest-master/googlemock/gtest/libgtest_maind.a
 Reversi: lib/googletest-master/googlemock/gtest/libgtestd.a
 Reversi: CMakeFiles/Reversi.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable Reversi"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable Reversi"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Reversi.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -450,7 +424,6 @@ CMakeFiles/Reversi.dir/requires: CMakeFiles/Reversi.dir/tests/gtest_main.cpp.o.r
 CMakeFiles/Reversi.dir/requires: CMakeFiles/Reversi.dir/tests/test_Board.cpp.o.requires
 CMakeFiles/Reversi.dir/requires: CMakeFiles/Reversi.dir/tests/test_ReversiPlayer.cpp.o.requires
 CMakeFiles/Reversi.dir/requires: CMakeFiles/Reversi.dir/tests/test_Player.cpp.o.requires
-CMakeFiles/Reversi.dir/requires: CMakeFiles/Reversi.dir/tests/test_Reversi.cpp.o.requires
 CMakeFiles/Reversi.dir/requires: CMakeFiles/Reversi.dir/src/ReversiOnlinePlayer.cpp.o.requires
 CMakeFiles/Reversi.dir/requires: CMakeFiles/Reversi.dir/src/ReversiPcPlayer.cpp.o.requires
 CMakeFiles/Reversi.dir/requires: CMakeFiles/Reversi.dir/src/ReversiLocalPlayer.cpp.o.requires

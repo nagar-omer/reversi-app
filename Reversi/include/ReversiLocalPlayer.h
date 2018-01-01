@@ -8,7 +8,8 @@
 #ifndef REVERSI_LOCAL_PLAYER_H
 #define REVERSI_LOCAL_PLAYER_H
 
-#include "../include/ReversiPlayer.h"
+#include "ReversiPlayer.h"
+
 class ReversiLocalPlayer: public ReversiPlayer {
 public:
     ReversiLocalPlayer(Player *player, bool color): ReversiPlayer(player, color) {};
@@ -18,7 +19,7 @@ public:
      * Input: array for returning result, string for possible options            *
      * Output: user picking according to user input                              *
      ****************************************************************************/
-    virtual void playReversiMove(int *result, Board *board);
+    virtual void playReversiMove(int *result, Board *board) const;
 
     /*****************************************************************************
      * Function name: default destructor                                         *
