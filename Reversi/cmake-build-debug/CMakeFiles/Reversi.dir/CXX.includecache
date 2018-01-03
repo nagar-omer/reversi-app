@@ -289,6 +289,8 @@ vector
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Game.h
 
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/PlayGround.h
+../include/Player.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Player.h
 ../include/Reversi.h
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Reversi.h
 
@@ -321,6 +323,8 @@ stdlib.h
 -
 Game.h
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Game.h
+ReversiPlayer.h
+/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/ReversiPlayer.h
 Board.h
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Board.h
 ReversiLocalPlayer.h
@@ -331,7 +335,7 @@ ReversiOnlinePlayer.h
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/ReversiOnlinePlayer.h
 
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/ReversiLocalPlayer.h
-ReversiPlayer.h
+../include/ReversiPlayer.h
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/ReversiPlayer.h
 
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/ReversiOnlinePlayer.h
@@ -357,14 +361,16 @@ sstream
 -
 
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/ReversiPcPlayer.h
-ReversiPlayer.h
+../include/ReversiPlayer.h
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/ReversiPlayer.h
 
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/ReversiPlayer.h
-Player.h
+../include/Player.h
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Player.h
-Board.h
+../include/Board.h
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Board.h
+vector
+-
 
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/src/Board.cpp
 ../include/Board.h
@@ -421,12 +427,6 @@ gtest/gtest.h
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/gtest/gtest.h
 ../include/Player.h
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Player.h
-
-/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/test_Reversi.cpp
-gtest/gtest.h
-/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/gtest/gtest.h
-../include/Reversi.h
-/home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/include/Reversi.h
 
 /home/oved/CLionProjects/advanced_1/Reversi_ap1/Reversi/tests/test_ReversiPlayer.cpp
 gtest/gtest.h

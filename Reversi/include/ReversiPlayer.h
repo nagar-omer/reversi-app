@@ -10,9 +10,10 @@
 #ifndef REVERSI_PLAYER_H
 #define REVERSI_PLAYER_H
 
-#include "Player.h"
-#include "Board.h"
-
+#define PLAYER_ENDED_GAME (-2)
+#include "../include/Player.h"
+#include "../include/Board.h"
+#include <vector>
 
 /*****************************************************************************
  * Board Class: this class contains the board of the game                    *
@@ -43,12 +44,11 @@ protected:
     /*****************************************************************************
      * Function name: PressKeyToContinue - waiting for ENTER                     *
      ****************************************************************************/
-    void pressKeyToContinue() const {
+    void pressKeyToContinue() {
         // clearing buffer
+        cin.get();
         cin.ignore();
-        string junk;
-        getline(cin, junk);
-    };
+    }
 
     bool checkMoveInput(const string &input) const;
 
@@ -65,33 +65,25 @@ public:
             flag = 'X';
         else
             flag = 'O';
-    };
-
+    }
     /*****************************************************************************
      * Function name: getPlayer - return player reference                        *
      ****************************************************************************/
     Player *getPlayer() const { return playerRef; };
-
     /*****************************************************************************
      * Function name: getColor - returs color (BLACK/WHITE)                      *
      ****************************************************************************/
     bool getColor() const { return color; };
-
     /*****************************************************************************
      * Function name: playReversiMove                                            *
      * Input: array to return result, string representing the move options       *
      * Output: initialize player reference and save the color                    *
      ****************************************************************************/
-    virtual void playReversiMove(int result[2], Board *board) const = 0;
-
-
-    /*****************************************************************************
-     * Function name: sendLastMove                                               *
-     * Operation: send to the server the opponents last move                     *
-     ****************************************************************************/
-    virtual void sendLastMove(int move[2]) const {};
+    virtual void playReversiMove(int result[2], Board *board) = 0;
+    virtual void sendLastMove(int move[2]) {};
     virtual ~ReversiPlayer() {};
 };
 
-#endif //REVERSI_PLAYER_H
 
+
+#endif //REVERSI_PLAYER_H

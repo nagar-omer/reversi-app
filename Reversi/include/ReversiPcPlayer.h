@@ -9,8 +9,7 @@
 #ifndef REVERSI_PC_PLAYER_H
 #define REVERSI_PC_PLAYER_H
 
-#include "ReversiPlayer.h"
-
+#include "../include/ReversiPlayer.h"
 class ReversiPcPlayer: public ReversiPlayer{
 public:
     ReversiPcPlayer(Player *player, bool color): ReversiPlayer(player, color) {};
@@ -20,7 +19,7 @@ public:
      * Input: array for returning result, string for possible options            *
      * Output: computer picking according to possibilities                       *
      ****************************************************************************/
-    virtual void playReversiMove(int *result, Board *board) const;
+    virtual void playReversiMove(int *result, Board *board);
 
     /*****************************************************************************
      * Function name: default destructor                                         *

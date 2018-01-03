@@ -8,7 +8,6 @@
 
 #include "../include/ReversiOnlinePlayer.h"
 
-
 ReversiOnlinePlayer::ReversiOnlinePlayer(Player *player, bool color, int serverSocket): ReversiPlayer(player, color) {
     // start TCP connection with the server
     server = serverSocket;
@@ -20,16 +19,17 @@ ReversiOnlinePlayer::ReversiOnlinePlayer(Player *player, bool color, int serverS
  * Input: opponent last move and current game board                          *
  * Output: the players move according to answer from server                  *
  ****************************************************************************/
-void ReversiOnlinePlayer::playReversiMove(int *lastMove, Board *board) const{
+void ReversiOnlinePlayer::playReversiMove(int *lastMove, Board *board) {
     // wait for online player to make a move.....
     cout << endl << "waiting for online player to make a move..." << endl;
     char move_c[50];
     // wait for online player to make a move.....
     if (read(server, move_c, 50) == -1)
         throw "Connection lost - reading from server";
-    // case other player ended game
-    if (strcmp(move_c, "END") == 0) {
-        lastMove[0] = -2;
+    // if player ended game
+    if (strcmp("END", move_c) == 0) {
+        cout << "opponent disconnected." << endl << endl;
+        lastMove[0] = PLAYER_ENDED_GAME;
         return;
     }
     // converting string to array of ints for return
@@ -39,17 +39,18 @@ void ReversiOnlinePlayer::playReversiMove(int *lastMove, Board *board) const{
     istringstream in(move_str);
     // get final result as ints
     in >> lastMove[0] >> lastMove[1];
-    if (lastMove[0] == -1)
+    if (lastMove[0] == -1) {
         cout << "opponent cant play.." << endl << endl;
+        return;
+    }
     cout << "other player move: " << "(" << lastMove[0] << "," << lastMove[1] << ")" << endl << endl;
 }
-
 
 /*****************************************************************************
  * Function name: sendLastMove                                               *
  * Operation: send to the server the opponents last move                     *
  ****************************************************************************/
-void ReversiOnlinePlayer::sendLastMove(int *move) const {
+void ReversiOnlinePlayer::sendLastMove(int *move) {
     // last move is 0,0 only for first move - no one played yet - there is nothing to send to the server
     ostringstream out;
     out << "play " << move[0] << "," << move[1];

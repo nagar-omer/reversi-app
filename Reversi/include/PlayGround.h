@@ -9,6 +9,7 @@
 #ifndef OTHELLO_PLAYGROUND_H
 #define OTHELLO_PLAYGROUND_H
 
+#include "../include/Player.h"
 #include "../include/Reversi.h"
 
 class PlayGround {
@@ -16,19 +17,12 @@ class PlayGround {
     enum menue {BACK, NEW_PLAYER, NEW_GAME, EXIT};
     enum games {REVERSI = 1};
     vector<Player *> players;
-    Reversi *reversi;
 
     /*****************************************************************************
      * Function name: addPlayer                                                  *
      * Operation: the function asks from the user to enter new Player            *
      ****************************************************************************/
     void addPlayer();
-
-    /*****************************************************************************
-     * Function name: startGame                                                  *
-     * Operation: asks from user to choose a game and stars the game             *
-     ****************************************************************************/
-    void startGame();
 
     /*****************************************************************************
      * Function name: startReversiGame                                           *
@@ -52,7 +46,6 @@ public:
         players.push_back(new Player("PC", Player::PC));
         // serial number 2
         players.push_back(new Player("ONLINE", Player::ONLINE_PLAYER));
-        reversi = new Reversi(&players);
     };
 
     /*****************************************************************************

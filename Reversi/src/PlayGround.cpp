@@ -13,41 +13,8 @@
  * Operation: creates reversi object and starts the game                     *
  ****************************************************************************/
 void PlayGround::startReversiGame() {
-
-    try {
-        reversi->startGame();
-    }
-    catch (const char *msg){
-        cout << endl << "CANT START GAME !" << endl;
-        cout << endl << msg << endl << endl;
-    }
-}
-
-/*****************************************************************************
- * Function name: startGame                                                  *
- * Operation: asks from user to choose a game and stars the game             *
- ****************************************************************************/
-void PlayGround::startGame(){
-    if ( players.size() < 3) {
-        cout << "create a player before starting a game .. " << endl << endl;
-        return;
-    }
-    int id;
-    cout << "Pick a game:" << endl;
-    cout << "\t0.\t Back" << endl;
-    cout << "\t1.\t Reversi" << endl;
-    cin >> id;
-    switch (id) {
-        case BACK:
-            return;
-        case REVERSI: {
-            startReversiGame();
-            break;
-        }
-        default:
-            cout << "No such option";
-            return;
-    }
+    Reversi reversi(players);
+    reversi.go();
 }
 
 
@@ -60,7 +27,7 @@ void PlayGround::addPlayer() {
     string nick;
     cin >> nick;
     players.push_back(new Player(nick, Player::LOCAL_PLAYER));
-    cout << *players.back() << endl;
+    cout << endl << "player added:" << endl << *players.back() << endl;
 }
 
 
@@ -83,7 +50,7 @@ void PlayGround::go(){
                 break;
             }
             case NEW_GAME: {
-                startGame();
+                startReversiGame();
                 break;
             }
             default:
@@ -110,5 +77,4 @@ Player *PlayGround::getPlayerByID(int id){
 PlayGround::~PlayGround() {
     for(vector<Player *>::iterator it = players.begin(); it != players.end(); ++it )
         delete (*it);
-        delete(reversi);
 }

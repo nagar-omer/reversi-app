@@ -13,7 +13,7 @@
  * Input: array for returning result, string for possible options            *
  * Output: computer picking according to possibilities                       *
  ****************************************************************************/
-void ReversiPcPlayer::playReversiMove(int *result, Board *board) const{
+void ReversiPcPlayer::playReversiMove(int *result, Board *board) {
     result[0] = -1;
     result[1] = -1;
 
